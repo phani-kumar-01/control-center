@@ -1,0 +1,474 @@
+=== ls -la /sys/class/leds/ ===
+total 0
+drwxr-xr-x  2 root root 0 Nov 26 06:16 .
+drwxr-xr-x 85 root root 0 Nov 26 06:57 ..
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 enp3s0-0::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-0::lan
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 enp3s0-1::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-1::lan
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 enp3s0-2::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-2::lan
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input4::capslock -> ../../devices/platform/i8042/serio0/input/input4/input4::capslock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input4::numlock -> ../../devices/platform/i8042/serio0/input/input4/input4::numlock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input4::scrolllock -> ../../devices/platform/i8042/serio0/input/input4/input4::scrolllock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::capslock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::capslock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::compose -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::compose
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::kana -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::kana
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::numlock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::numlock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::scrolllock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::scrolllock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 mmc0:: -> ../../devices/pci0000:00/0000:00:1d.2/0000:04:00.0/leds/mmc0::
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 phy0-led -> ../../devices/pci0000:00/0000:00:14.3/leds/phy0-led
+
+=== /sys/class/leds/* contents ===
+== /sys/class/leds/enp3s0-0::lan ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/enp3s0-0::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-0::lan
+  [brightness]: 0 
+  [max_brightness]: 255 
+  [trigger]: [none] usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/enp3s0-1::lan ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/enp3s0-1::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-1::lan
+  [brightness]: 0 
+  [max_brightness]: 255 
+  [trigger]: [none] usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/enp3s0-2::lan ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/enp3s0-2::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-2::lan
+  [brightness]: 0 
+  [max_brightness]: 255 
+  [trigger]: [none] usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input4::capslock ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input4::capslock -> ../../devices/platform/i8042/serio0/input/input4/input4::capslock
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock [kbd-capslock] kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0011v0001p0001eAB83-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,8A,8C,8D,8E,8F,94,95,96,9B,9C,9D,9E,9F,A3,A4,A5,A6,AD,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,D9,E0,E1,E2,E3,EC,ED,EE,1A9,1B2,1B3,1D0,213,214,ram4,l0,1,2,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input4::numlock ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input4::numlock -> ../../devices/platform/i8042/serio0/input/input4/input4::numlock
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock [kbd-numlock] kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0011v0001p0001eAB83-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,8A,8C,8D,8E,8F,94,95,96,9B,9C,9D,9E,9F,A3,A4,A5,A6,AD,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,D9,E0,E1,E2,E3,EC,ED,EE,1A9,1B2,1B3,1D0,213,214,ram4,l0,1,2,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input4::scrolllock ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input4::scrolllock -> ../../devices/platform/i8042/serio0/input/input4/input4::scrolllock
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none [kbd-scrolllock] kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0011v0001p0001eAB83-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,8A,8C,8D,8E,8F,94,95,96,9B,9C,9D,9E,9F,A3,A4,A5,A6,AD,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,D9,E0,E1,E2,E3,EC,ED,EE,1A9,1B2,1B3,1D0,213,214,ram4,l0,1,2,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input6::capslock ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input6::capslock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::capslock
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock [kbd-capslock] kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0003v3554pFC04e0111-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8C,8E,96,98,9E,9F,A1,A3,A4,A5,A6,AD,B0,B1,B2,B3,B4,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,F0,ram4,l0,1,2,3,4,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input6::compose ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input6::compose -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::compose
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: [none] usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0003v3554pFC04e0111-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8C,8E,96,98,9E,9F,A1,A3,A4,A5,A6,AD,B0,B1,B2,B3,B4,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,F0,ram4,l0,1,2,3,4,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input6::kana ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input6::kana -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::kana
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock [kbd-kanalock] kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0003v3554pFC04e0111-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8C,8E,96,98,9E,9F,A1,A3,A4,A5,A6,AD,B0,B1,B2,B3,B4,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,F0,ram4,l0,1,2,3,4,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input6::numlock ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input6::numlock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::numlock
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock [kbd-numlock] kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0003v3554pFC04e0111-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8C,8E,96,98,9E,9F,A1,A3,A4,A5,A6,AD,B0,B1,B2,B3,B4,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,F0,ram4,l0,1,2,3,4,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/input6::scrolllock ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/input6::scrolllock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::scrolllock
+  [brightness]: 0 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none [kbd-scrolllock] kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: input:b0003v3554pFC04e0111-e0,1,4,11,14,k71,72,73,74,75,77,79,7A,7B,7C,7D,7E,7F,80,81,82,83,84,85,86,87,88,89,8A,8C,8E,96,98,9E,9F,A1,A3,A4,A5,A6,AD,B0,B1,B2,B3,B4,B7,B8,B9,BA,BB,BC,BD,BE,BF,C0,C1,C2,F0,ram4,l0,1,2,3,4,sfw 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/mmc0:: ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/mmc0:: -> ../../devices/pci0000:00/0000:00:1d.2/0000:04:00.0/leds/mmc0::
+  [brightness]: 0 
+  [max_brightness]: 255 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green [mmc0] rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc phy0radio rfkill1 
+  [device/modalias]: pci:v00001217d00008621sv00001025sd00001900bc08sc05i01 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+== /sys/class/leds/phy0-led ==
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/class/leds/phy0-led -> ../../devices/pci0000:00/0000:00:14.3/leds/phy0-led
+  [brightness]: 1 
+  [max_brightness]: 1 
+  [trigger]: none default usb-gadget usb-host rfkill-any rfkill-none kbd-scrolllock kbd-numlock kbd-capslock kbd-kanalock kbd-shiftlock kbd-altgrlock kbd-ctrllock kbd-altlock kbd-shiftllock kbd-shiftrlock kbd-ctrlllock kbd-ctrlrlock disk-activity disk-read disk-write mtd nand-disk cpu cpu0 cpu1 cpu2 cpu3 cpu4 cpu5 cpu6 cpu7 panic AC-online BAT0-charging-or-full BAT0-charging BAT0-full BAT0-charging-blink-full-solid BAT0-charging-orange-full-green mmc0 rc-feedback bluetooth-power r8169-0-300:00:link r8169-0-300:00:10Mbps r8169-0-300:00:100Mbps r8169-0-300:00:1Gbps hci0-power rfkill0 phy0rx phy0tx phy0assoc [phy0radio] rfkill1 
+  [device/modalias]: pci:v00008086d000051F1sv00008086sd00000244bc02sc80i00 
+  [uevent]: 
+  [has multi_intensity]: NO
+  [has multi_index]: NO
+
+=== brightnessctl --list ===
+brightnessctl: MISSING (package: brightnessctl)
+
+=== lsusb ===
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 002 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+Bus 003 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 003 Device 002: ID 3554:fc04  2.4G Receiver
+Bus 003 Device 003: ID 04f2:b729 Chicony Electronics Co., Ltd Chicony USB2.0 Camera
+Bus 003 Device 004: ID 8087:0026 Intel Corp. AX201 Bluetooth
+Bus 004 Device 001: ID 1d6b:0003 Linux Foundation 3.0 root hub
+
+=== lsusb -v (bus/dev summary for HID/kbd) ===
+/:  Bus 001.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/1p, 480M
+/:  Bus 002.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/3p, 20000M/x2
+/:  Bus 003.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/12p, 480M
+    |__ Port 005: Dev 002, If 0, Class=Human Interface Device, Driver=usbhid, 12M
+    |__ Port 005: Dev 002, If 1, Class=Human Interface Device, Driver=usbhid, 12M
+    |__ Port 008: Dev 003, If 0, Class=Video, Driver=uvcvideo, 480M
+    |__ Port 008: Dev 003, If 1, Class=Video, Driver=uvcvideo, 480M
+    |__ Port 008: Dev 003, If 2, Class=Application Specific Interface, Driver=[none], 480M
+    |__ Port 010: Dev 004, If 0, Class=Wireless, Driver=btusb, 12M
+    |__ Port 010: Dev 004, If 1, Class=Wireless, Driver=btusb, 12M
+/:  Bus 004.Port 001: Dev 001, Class=root_hub, Driver=xhci_hcd/4p, 10000M
+
+=== ls -la /dev/hidraw* ===
+crw------- 1 root root 240, 0 Nov 26 06:16 /dev/hidraw0
+crw------- 1 root root 240, 1 Nov 26 06:16 /dev/hidraw1
+crw------- 1 root root 240, 2 Nov 26 06:16 /dev/hidraw2
+
+=== /sys/class/hidraw/* ===
+--- /sys/class/hidraw/hidraw0 ---
+  uevent: DRIVER=hid-generic HID_ID=0003:00003554:0000FC04 HID_NAME=2.4G Receiver HID_PHYS=usb-0000:00:14.0-5/input0 HID_UNIQ= MODALIAS=hid:b0003g0001v00003554p0000FC04 
+  devpath: /sys/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001
+--- /sys/class/hidraw/hidraw1 ---
+  uevent: DRIVER=hid-generic HID_ID=0003:00003554:0000FC04 HID_NAME=2.4G Receiver HID_PHYS=usb-0000:00:14.0-5/input1 HID_UNIQ= MODALIAS=hid:b0003g0001v00003554p0000FC04 
+  devpath: /sys/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:3554:FC04.0002
+--- /sys/class/hidraw/hidraw2 ---
+  uevent: DRIVER=hid-multitouch HID_ID=0018:00002808:00000101 HID_NAME=FTCS1000:01 2808:0101 HID_PHYS=i2c-FTCS1000:01 HID_UNIQ= MODALIAS=hid:b0018g0004v00002808p00000101 
+  devpath: /sys/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-0/i2c-FTCS1000:01/0018:2808:0101.0003
+
+=== i2cdetect -l ===
+i2cdetect: MISSING (package: i2c-tools; requires sudo apt install -y i2c-tools)
+
+=== /sys/bus/i2c/devices/ ===
+/sys/bus/i2c/devices/1-0036: name=dummy
+/sys/bus/i2c/devices/1-0037: name=dummy
+/sys/bus/i2c/devices/1-0050: name=ee1004
+/sys/bus/i2c/devices/i2c-0: name=Synopsys DesignWare I2C adapter
+/sys/bus/i2c/devices/i2c-1: name=SMBus I801 adapter at 0000:00:1f.4
+/sys/bus/i2c/devices/i2c-10: name=i915 gmbus tc6
+/sys/bus/i2c/devices/i2c-11: name=AUX A/DDI A/PHY A
+/sys/bus/i2c/devices/i2c-12: name=NVIDIA i2c adapter 1 at 1:00.0
+/sys/bus/i2c/devices/i2c-13: name=NVIDIA i2c adapter 3 at 1:00.0
+/sys/bus/i2c/devices/i2c-2: name=i915 gmbus dpa
+/sys/bus/i2c/devices/i2c-3: name=i915 gmbus dpb
+/sys/bus/i2c/devices/i2c-4: name=i915 gmbus dpc
+/sys/bus/i2c/devices/i2c-5: name=i915 gmbus tc1
+/sys/bus/i2c/devices/i2c-6: name=i915 gmbus tc2
+/sys/bus/i2c/devices/i2c-7: name=i915 gmbus tc3
+/sys/bus/i2c/devices/i2c-8: name=i915 gmbus tc4
+/sys/bus/i2c/devices/i2c-9: name=i915 gmbus tc5
+/sys/bus/i2c/devices/i2c-FTCS1000:01: name=FTCS1000:01
+
+=== /proc/bus/input/devices ===
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=PNP0C0C/button/input0
+S: Sysfs=/devices/platform/PNP0C0C:00/input/input0
+U: Uniq=
+H: Handlers=kbd event0 
+B: PROP=0
+B: EV=3
+B: KEY=8000 10000000000000 0
+
+I: Bus=0019 Vendor=0000 Product=0003 Version=0000
+N: Name="Sleep Button"
+P: Phys=PNP0C0E/button/input0
+S: Sysfs=/devices/platform/PNP0C0E:00/input/input1
+U: Uniq=
+H: Handlers=kbd event1 
+B: PROP=0
+B: EV=3
+B: KEY=4000 0 0
+
+I: Bus=0019 Vendor=0000 Product=0005 Version=0000
+N: Name="Lid Switch"
+P: Phys=PNP0C0D/button/input0
+S: Sysfs=/devices/platform/PNP0C0D:00/input/input2
+U: Uniq=
+H: Handlers=event2 
+B: PROP=0
+B: EV=21
+B: SW=1
+
+I: Bus=0019 Vendor=0000 Product=0001 Version=0000
+N: Name="Power Button"
+P: Phys=LNXPWRBN/button/input0
+S: Sysfs=/devices/platform/LNXPWRBN:00/input/input3
+U: Uniq=
+H: Handlers=kbd event3 
+B: PROP=0
+B: EV=3
+B: KEY=8000 10000000000000 0
+
+I: Bus=0011 Vendor=0001 Product=0001 Version=ab83
+N: Name="AT Translated Set 2 keyboard"
+P: Phys=isa0060/serio0/input0
+S: Sysfs=/devices/platform/i8042/serio0/input/input4
+U: Uniq=
+H: Handlers=sysrq kbd event4 leds 
+B: PROP=0
+B: EV=120013
+B: KEY=180000 10000 c020000000000 0 0 700f02000007 ff802078f870f401 febfffdfffcfffff fffffffffffffffe
+B: MSC=10
+B: LED=7
+
+I: Bus=0003 Vendor=3554 Product=fc04 Version=0111
+N: Name="2.4G Receiver"
+P: Phys=usb-0000:00:14.0-5/input0
+S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6
+U: Uniq=
+H: Handlers=sysrq kbd event5 leds 
+B: PROP=0
+B: EV=120013
+B: KEY=1000000000007 ff9f207ac14057ff febeffdfffefffff fffffffffffffffe
+B: MSC=10
+B: LED=1f
+
+I: Bus=0003 Vendor=3554 Product=fc04 Version=0111
+N: Name="2.4G Receiver Mouse"
+P: Phys=usb-0000:00:14.0-5/input1
+S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:3554:FC04.0002/input/input7
+U: Uniq=
+H: Handlers=mouse0 event6 
+B: PROP=0
+B: EV=17
+B: KEY=1f0000 0 0 0 0
+B: REL=1943
+B: MSC=10
+
+I: Bus=0003 Vendor=3554 Product=fc04 Version=0111
+N: Name="2.4G Receiver"
+P: Phys=usb-0000:00:14.0-5/input1
+S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:3554:FC04.0002/input/input8
+U: Uniq=
+H: Handlers=event7 
+B: PROP=0
+B: EV=100001
+
+I: Bus=0003 Vendor=3554 Product=fc04 Version=0111
+N: Name="2.4G Receiver Consumer Control"
+P: Phys=usb-0000:00:14.0-5/input1
+S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:3554:FC04.0002/input/input9
+U: Uniq=
+H: Handlers=kbd event8 
+B: PROP=0
+B: EV=1f
+B: KEY=3f00733fff 0 0 483ffff17aff32d bfd4444600000000 1 130ff38b17d000 677bfad9415fed 19ed68000004400 10000002
+B: REL=1040
+B: ABS=100000000
+B: MSC=10
+
+I: Bus=0003 Vendor=3554 Product=fc04 Version=0111
+N: Name="2.4G Receiver System Control"
+P: Phys=usb-0000:00:14.0-5/input1
+S: Sysfs=/devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.1/0003:3554:FC04.0002/input/input10
+U: Uniq=
+H: Handlers=kbd event9 
+B: PROP=0
+B: EV=13
+B: KEY=c000 10000000000000 0
+B: MSC=10
+
+I: Bus=0018 Vendor=2808 Product=0101 Version=0100
+N: Name="FTCS1000:01 2808:0101 Mouse"
+P: Phys=i2c-FTCS1000:01
+S: Sysfs=/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-0/i2c-FTCS1000:01/0018:2808:0101.0003/input/input16
+U: Uniq=
+H: Handlers=mouse1 event10 
+B: PROP=0
+B: EV=17
+B: KEY=30000 0 0 0 0
+B: REL=903
+B: MSC=10
+
+I: Bus=0018 Vendor=2808 Product=0101 Version=0100
+N: Name="FTCS1000:01 2808:0101 Touchpad"
+P: Phys=i2c-FTCS1000:01
+S: Sysfs=/devices/pci0000:00/0000:00:15.0/i2c_designware.0/i2c-0/i2c-FTCS1000:01/0018:2808:0101.0003/input/input17
+U: Uniq=
+H: Handlers=mouse2 event11 
+B: PROP=5
+B: EV=1b
+B: KEY=e520 10000 0 0 0 0
+B: ABS=2e0800000000003
+B: MSC=20
+
+I: Bus=0019 Vendor=0000 Product=0000 Version=0000
+N: Name="Intel HID events"
+P: Phys=
+S: Sysfs=/devices/platform/INTC1051:00/input/input19
+U: Uniq=
+H: Handlers=rfkill kbd event12 
+B: PROP=0
+B: EV=13
+B: KEY=81000300000000 5000004000 1e294000000020 0
+B: MSC=10
+
+I: Bus=0011 Vendor=0002 Product=0005 Version=0063
+N: Name="ImPS/2 Logitech Wheel Mouse"
+P: Phys=isa0060/serio1/input0
+S: Sysfs=/devices/platform/i8042/serio1/input/input12
+U: Uniq=
+H: Handlers=mouse3 event13 
+B: PROP=1
+B: EV=7
+B: KEY=70000 0 0 0 0
+B: REL=103
+
+I: Bus=0019 Vendor=0000 Product=0006 Version=0000
+N: Name="Video Bus"
+P: Phys=LNXVIDEO/video/input0
+S: Sysfs=/devices/pci0000:00/acpi.video_bus.0/input/input20
+U: Uniq=
+H: Handlers=kbd event14 
+B: PROP=0
+B: EV=3
+B: KEY=3e000b00000000 0 0 0
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA NVidia HDMI/DP,pcm=3"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card1/input21
+U: Uniq=
+H: Handlers=event15 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA NVidia HDMI/DP,pcm=7"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card1/input22
+U: Uniq=
+H: Handlers=event16 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA NVidia HDMI/DP,pcm=8"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card1/input23
+U: Uniq=
+H: Handlers=event17 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA NVidia HDMI/DP,pcm=9"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:01.0/0000:01:00.1/sound/card1/input24
+U: Uniq=
+H: Handlers=event18 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Headset Mic"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input25
+U: Uniq=
+H: Handlers=event19 
+B: PROP=0
+B: EV=21
+B: SW=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Front Mic"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input26
+U: Uniq=
+H: Handlers=event20 
+B: PROP=0
+B: EV=21
+B: SW=10
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH Front Headphone"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input27
+U: Uniq=
+H: Handlers=event21 
+B: PROP=0
+B: EV=21
+B: SW=4
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH HDMI/DP,pcm=3"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input28
+U: Uniq=
+H: Handlers=event22 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH HDMI/DP,pcm=7"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input29
+U: Uniq=
+H: Handlers=event23 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH HDMI/DP,pcm=8"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input30
+U: Uniq=
+H: Handlers=event24 
+B: PROP=0
+B: EV=21
+B: SW=140
+
+I: Bus=0000 Vendor=0000 Product=0000 Version=0000
+N: Name="HDA Intel PCH HDMI/DP,pcm=9"
+P: Phys=ALSA
+S: Sysfs=/devices/pci0000:00/0000:00:1f.3/sound/card0/input31
+U: Uniq=
+H: Handlers=event25 
+B: PROP=0
+B: EV=21
+B: SW=140
+

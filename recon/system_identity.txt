@@ -1,0 +1,52 @@
+=== uname -a ===
+Linux candy-Aspire-A715-79G 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64 GNU/Linux
+
+=== lsb_release -a ===
+Distributor ID:	Ubuntu
+Description:	Ubuntu 26.04.1 LTS
+Release:	26.04
+Codename:	resolute
+
+=== /etc/os-release ===
+PRETTY_NAME="Ubuntu 26.04.1 LTS"
+NAME="Ubuntu"
+VERSION_ID="26.04"
+VERSION="26.04.1 LTS (Resolute Raccoon)"
+VERSION_CODENAME=resolute
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=resolute
+LOGO=ubuntu-logo
+
+=== sudo -n dmidecode -t system -t baseboard -t bios ===
+sudo: interactive authentication is required
+[EXIT: 1 - requires interactive sudo]
+
+=== /sys/class/dmi/id/ ===
+sys_vendor: Acer
+product_name: Aspire A715-79G
+product_version: 1.14
+product_family: Aspire 7
+product_sku: 0000000000000000
+board_vendor: Acer
+board_name: Aspire A715-79G
+board_version: 1.14
+bios_vendor: INSYDE Corp.
+bios_version: 1.14RA1
+bios_date: 09/08/2025
+bios_release: 7.14
+
+=== CPU info (lscpu) ===
+CPU(s):                                  12
+On-line CPU(s) list:                     0-11
+Vendor ID:                               GenuineIntel
+Model name:                              Intel(R) Core(TM) 5 210H
+Thread(s) per core:                      2
+Core(s) per socket:                      8
+Socket(s):                               1
+CPU(s) scaling MHz:                      24%
+NUMA node0 CPU(s):                       0-11

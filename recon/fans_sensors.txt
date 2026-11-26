@@ -1,0 +1,267 @@
+=== sensors ===
+sensors: MISSING (package: lm-sensors; requires sudo apt install -y lm-sensors && sudo sensors-detect --auto)
+
+=== /sys/class/hwmon/* ===
+== /sys/class/hwmon/hwmon0 (target: /sys/devices/platform/ACPI0003:00/power_supply/AC/hwmon0) ==
+  name: AC
+total 0
+drwxr-xr-x 3 root root    0 Nov 26 06:16 .
+drwxr-xr-x 6 root root    0 Nov 26 06:16 ..
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 device -> ../../AC
+-r--r--r-- 1 root root 4096 Nov 26 06:16 name
+drwxr-xr-x 2 root root    0 Nov 26 06:57 power
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 subsystem -> ../../../../../../class/hwmon
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 uevent
+== /sys/class/hwmon/hwmon1 (target: /sys/devices/virtual/thermal/thermal_zone0/hwmon1) ==
+  name: acpitz_0
+total 0
+drwxr-xr-x 3 root root    0 Nov 26 06:16 .
+drwxr-xr-x 4 root root    0 Nov 26 06:16 ..
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 device -> ../../thermal_zone0
+-r--r--r-- 1 root root 4096 Nov 26 06:16 name
+drwxr-xr-x 2 root root    0 Nov 26 06:57 power
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 subsystem -> ../../../../../class/hwmon
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_input
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 uevent
+  temp1_input: 44000
+== /sys/class/hwmon/hwmon2 (target: /sys/devices/LNXSYSTM:00/LNXSYBUS:00/PNP0C0A:00/power_supply/BAT0/hwmon2) ==
+  name: BAT0
+total 0
+drwxr-xr-x 3 root root    0 Nov 26 06:16 .
+drwxr-xr-x 5 root root    0 Nov 26 06:16 ..
+-r--r--r-- 1 root root 4096 Nov 26 06:16 curr1_input
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 device -> ../../BAT0
+-r--r--r-- 1 root root 4096 Nov 26 06:16 in0_input
+-r--r--r-- 1 root root 4096 Nov 26 06:16 name
+drwxr-xr-x 2 root root    0 Nov 26 06:57 power
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 subsystem -> ../../../../../../../class/hwmon
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 uevent
+== /sys/class/hwmon/hwmon3 (target: /sys/devices/pci0000:00/0000:00:1c.0/0000:02:00.0/nvme/nvme0/hwmon3) ==
+  name: nvme
+total 0
+drwxr-xr-x 3 root root    0 Nov 26 06:16 .
+drwxr-xr-x 6 root root    0 Nov 26 06:16 ..
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 device -> ../../nvme0
+-r--r--r-- 1 root root 4096 Nov 26 06:16 name
+drwxr-xr-x 2 root root    0 Nov 26 06:57 power
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 subsystem -> ../../../../../../../class/hwmon
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp1_label
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 temp1_max
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 temp1_min
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp2_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp2_label
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 temp2_max
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 temp2_min
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp3_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp3_label
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 temp3_max
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 temp3_min
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 uevent
+  temp1_label: Composite
+  temp2_label: Sensor 1
+  temp3_label: Sensor 2
+  temp1_input: 33850
+  temp2_input: 35850
+  temp3_input: 32850
+  temp1_crit: 94850
+  temp1_max: 89850
+  temp2_max: 65261850
+  temp3_max: 65261850
+== /sys/class/hwmon/hwmon4 (target: /sys/devices/virtual/thermal/thermal_zone6/hwmon4) ==
+  name: iwlwifi_1_6
+total 0
+drwxr-xr-x 3 root root    0 Nov 26 06:16 .
+drwxr-xr-x 4 root root    0 Nov 26 06:16 ..
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 device -> ../../thermal_zone6
+-r--r--r-- 1 root root 4096 Nov 26 06:16 name
+drwxr-xr-x 2 root root    0 Nov 26 06:57 power
+lrwxrwxrwx 1 root root    0 Nov 26 06:23 subsystem -> ../../../../../class/hwmon
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_input
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 uevent
+  temp1_input: 39000
+== /sys/class/hwmon/hwmon5 (target: /sys/devices/platform/coretemp.0/hwmon/hwmon5) ==
+  name: coretemp
+total 0
+drwxr-xr-x 3 root root    0 Nov 26 06:16 .
+drwxr-xr-x 3 root root    0 Nov 26 06:16 ..
+lrwxrwxrwx 1 root root    0 Nov 26 06:16 device -> ../../../coretemp.0
+-r--r--r-- 1 root root 4096 Nov 26 06:16 name
+drwxr-xr-x 2 root root    0 Nov 26 06:57 power
+lrwxrwxrwx 1 root root    0 Nov 26 06:23 subsystem -> ../../../../../class/hwmon
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp10_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp10_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp10_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp10_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp10_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp14_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp14_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp14_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp14_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp14_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp1_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp1_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp22_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp22_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp22_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp22_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp22_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp23_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp23_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp23_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp23_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp23_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp24_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp24_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp24_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp24_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp24_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp25_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp25_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp25_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp25_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp25_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp2_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp2_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp2_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp2_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp2_max
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp6_crit
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp6_crit_alarm
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp6_input
+-r--r--r-- 1 root root 4096 Nov 26 06:57 temp6_label
+-r--r--r-- 1 root root 4096 Nov 26 06:16 temp6_max
+-rw-r--r-- 1 root root 4096 Nov 26 06:16 uevent
+  temp10_label: Core 8
+  temp14_label: Core 12
+  temp1_label: Package id 0
+  temp22_label: Core 20
+  temp23_label: Core 21
+  temp24_label: Core 22
+  temp25_label: Core 23
+  temp2_label: Core 0
+  temp6_label: Core 4
+  temp10_input: 37000
+  temp14_input: 36000
+  temp1_input: 44000
+  temp22_input: 39000
+  temp23_input: 40000
+  temp24_input: 40000
+  temp25_input: 39000
+  temp2_input: 36000
+  temp6_input: 42000
+  temp10_crit: 100000
+  temp14_crit: 100000
+  temp1_crit: 100000
+  temp22_crit: 100000
+  temp23_crit: 100000
+  temp24_crit: 100000
+  temp25_crit: 100000
+  temp2_crit: 100000
+  temp6_crit: 100000
+  temp10_max: 100000
+  temp14_max: 100000
+  temp1_max: 100000
+  temp22_max: 100000
+  temp23_max: 100000
+  temp24_max: 100000
+  temp25_max: 100000
+  temp2_max: 100000
+  temp6_max: 100000
+
+=== fan*_input and pwm* search ===
+/sys/devices/platform/INTC1055:00/pwm
+/sys/devices/platform/INTC1055:00/pwm/pwmchip0
+
+=== /sys/class/thermal/ ===
+total 0
+drwxr-xr-x  2 root root 0 Nov 26 06:16 .
+drwxr-xr-x 85 root root 0 Nov 26 06:57 ..
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device0 -> ../../devices/virtual/thermal/cooling_device0
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device1 -> ../../devices/virtual/thermal/cooling_device1
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device10 -> ../../devices/virtual/thermal/cooling_device10
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device11 -> ../../devices/virtual/thermal/cooling_device11
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device12 -> ../../devices/virtual/thermal/cooling_device12
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device13 -> ../../devices/virtual/thermal/cooling_device13
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device14 -> ../../devices/virtual/thermal/cooling_device14
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device15 -> ../../devices/virtual/thermal/cooling_device15
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device16 -> ../../devices/virtual/thermal/cooling_device16
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device17 -> ../../devices/virtual/thermal/cooling_device17
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device2 -> ../../devices/virtual/thermal/cooling_device2
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device3 -> ../../devices/virtual/thermal/cooling_device3
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device4 -> ../../devices/virtual/thermal/cooling_device4
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device5 -> ../../devices/virtual/thermal/cooling_device5
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device6 -> ../../devices/virtual/thermal/cooling_device6
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device7 -> ../../devices/virtual/thermal/cooling_device7
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device8 -> ../../devices/virtual/thermal/cooling_device8
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 cooling_device9 -> ../../devices/virtual/thermal/cooling_device9
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone0 -> ../../devices/virtual/thermal/thermal_zone0
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone1 -> ../../devices/virtual/thermal/thermal_zone1
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone2 -> ../../devices/virtual/thermal/thermal_zone2
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone3 -> ../../devices/virtual/thermal/thermal_zone3
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone4 -> ../../devices/virtual/thermal/thermal_zone4
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone5 -> ../../devices/virtual/thermal/thermal_zone5
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone6 -> ../../devices/virtual/thermal/thermal_zone6
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 thermal_zone7 -> ../../devices/virtual/thermal/thermal_zone7
+
+=== thermal_zone* ===
+/sys/class/thermal/thermal_zone0 | type=acpitz | temp=44000 | policy=user_space
+/sys/class/thermal/thermal_zone1 | type=INT3400 Thermal | temp=20000 | policy=user_space
+/sys/class/thermal/thermal_zone2 | type=SEN2 | temp=39050 | policy=user_space
+/sys/class/thermal/thermal_zone3 | type=SEN3 | temp=37050 | policy=user_space
+/sys/class/thermal/thermal_zone4 | type=TCPU | temp=45050 | policy=user_space
+/sys/class/thermal/thermal_zone5 | type=TCPU_PCI | temp=44000 | policy=user_space
+/sys/class/thermal/thermal_zone6 | type=iwlwifi_1 | temp=39000 | policy=user_space
+/sys/class/thermal/thermal_zone7 | type=x86_pkg_temp | temp=44000 | policy=user_space
+
+=== cooling_device* ===
+/sys/class/thermal/cooling_device0 | type=PCIe_Port_Link_Speed_0000:00:01.0 | cur_state=3 | max_state=4
+/sys/class/thermal/cooling_device1 | type=PCIe_Port_Link_Speed_0000:00:1c.0 | cur_state=0 | max_state=2
+/sys/class/thermal/cooling_device10 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device11 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device12 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device13 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device14 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device15 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device16 | type=intel_powerclamp | cur_state=0 | max_state=100
+/sys/class/thermal/cooling_device17 | type=TCC Offset | cur_state=5 | max_state=63
+/sys/class/thermal/cooling_device2 | type=PCIe_Port_Link_Speed_0000:00:1d.0 | cur_state=2 | max_state=2
+/sys/class/thermal/cooling_device3 | type=PCIe_Port_Link_Speed_0000:00:1d.2 | cur_state=2 | max_state=2
+/sys/class/thermal/cooling_device4 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device5 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device6 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device7 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device8 | type=Processor | cur_state=0 | max_state=3
+/sys/class/thermal/cooling_device9 | type=Processor | cur_state=0 | max_state=3
+
+=== systemctl status thermald ===
+● thermald.service - Thermal Daemon Service
+     Loaded: loaded (/usr/lib/systemd/system/thermald.service; enabled; preset: enabled)
+     Active: active (running) since Thu 2026-11-26 06:16:13 IST; 41min ago
+ Invocation: fec74b570b4a4bebb93088b42a813aa6
+   Main PID: 1122 (thermald)
+      Tasks: 5 (limit: 18141)
+     Memory: 3.8M (peak: 4.2M)
+        CPU: 495ms
+     CGroup: /system.slice/thermald.service
+             └─1122 /usr/sbin/thermald --systemd --dbus-enable --adaptive
+
+Nov 26 06:16:13 candy-Aspire-A715-79G systemd[1]: Starting thermald.service - Thermal Daemon Service...
+Nov 26 06:16:13 candy-Aspire-A715-79G thermald[1122]: 32 CPUID levels; family:model:stepping 0x6:ba:2 (6:186:2)
+Nov 26 06:16:13 candy-Aspire-A715-79G thermald[1122]: 32 CPUID levels; family:model:stepping 0x6:ba:2 (6:186:2)
+Nov 26 06:16:13 candy-Aspire-A715-79G thermald[1122]: Polling mode is enabled: 4
+Nov 26 06:16:13 candy-Aspire-A715-79G systemd[1]: Started thermald.service - Thermal Daemon Service.
+
+=== power_supply ===
+== /sys/class/power_supply/AC ==
+  type: Mains
+  online: 0
+== /sys/class/power_supply/BAT0 ==
+  type: Battery
+  status: Discharging
+  capacity: 79

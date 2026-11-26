@@ -1,0 +1,224 @@
+=== Acer Aspire 7 A715-79G — Phase 3 Step 2 Hardware Test ===
+Start UTC: 2026-11-26T02:41:28Z
+Kernel:    7.0.0-38-generic
+DMI:       Acer / Aspire A715-79G (BIOS 1.14RA1)
+
+=== [1] Pre-load Temperature & Read-Only EC Check (Abort if >= 80 C) ===
+CPU_PKG=46.0C CPU_MAX=46.0C ACPITZ=47.0C GPU=43.0C MAX=47.0C
+[ec_sys RO] 0x07(TMP)=47C | 0xCE(DUT1)=71/255 (27.8%) | 0xCF(DUT2)=71/255 (27.8%) | 0xD0..D1(RPM1)=[03 d5] -> 1100 RPM (60M/LE) / 2198 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[03 d5] -> 1100 RPM (60M/LE) / 2198 RPM (2.15M/BE)
+
+=== [2] Clean any previously loaded experimental modules & load prerequisites ===
+[emergency-reset] Starting emergency reset (restoring fan/profile controls to auto/balanced)...
+[emergency-reset] No experimental out-of-tree modules were loaded.
+[emergency-reset] Emergency reset completed cleanly.
+
+=== [3] insmod Out-of-Tree Patched tuxedo-drivers (exact dependency order) ===
++ insmod /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_compatibility_check/tuxedo_compatibility_check.ko
++ insmod /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_keyboard.ko
++ insmod /home/candy/control/control-center/driver/tuxedo-drivers/src/clevo_acpi.ko
++ insmod /home/candy/control/control-center/driver/tuxedo-drivers/src/clevo_wmi.ko
++ insmod /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_io/tuxedo_io.ko
+
+=== [4] dmesg (last 60 lines after insmod) ===
+[    4.997953]   Arg0:   00000000fa830f2e <Obj>           Buffer(16) 5D A8 3B B2 B7 C8 42 35
+[    4.997963]   Arg1:   00000000ff85da95 <Obj>           Integer 0000000000000001
+[    4.997967]   Arg2:   00000000764aa2b8 <Obj>           Integer 0000000000000002
+[    4.997970]   Arg3:   0000000069399922 <Obj>           Buffer(8) 00 00 00 00 05 00 00 00
+
+[    4.997979] ACPI Error: Aborting method \_SB.IETM._OSC due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+[    4.998028] Consider using thermal netlink events interface
+[    5.029446] iwlwifi 0000:00:14.3: WFPM_UMAC_PD_NOTIFICATION: 0x20
+[    5.029493] iwlwifi 0000:00:14.3: WFPM_LMAC2_PD_NOTIFICATION: 0x1f
+[    5.029502] iwlwifi 0000:00:14.3: WFPM_AUTH_KEY_0: 0x90
+[    5.029512] iwlwifi 0000:00:14.3: CNVI_SCU_SEQ_DATA_DW9: 0x10
+[    5.030689] iwlwifi 0000:00:14.3: RFIm is deactivated, reason = 4
+[    5.045489] Bluetooth: MGMT ver 1.23
+[    5.051761] NET: Registered PF_ALG protocol family
+[    5.638403] [drm] [nvidia-drm] [GPU ID 0x00000100] Loading driver
+[    5.722162] [drm] Initialized nvidia-drm 0.0.0 for 0000:01:00.0 on minor 0
+[    5.722460] nvidia 0000:01:00.0: [drm] Cannot find any crtc or sizes
+[    5.934708] nvidia_uvm: module uses symbols nvUvmInterfaceDisableAccessCntr from proprietary module nvidia, inheriting taint.
+[    6.558268] Bluetooth: RFCOMM TTY layer initialized
+[    6.558282] Bluetooth: RFCOMM socket layer initialized
+[    6.558289] Bluetooth: RFCOMM ver 1.11
+[    8.183055] rfkill: input handler disabled
+[    8.411070] kauditd_printk_skb: 200 callbacks suppressed
+[    8.411076] audit: type=1400 audit(1795653977.300:211): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=2344 comm="fusermount3" capability=1  capname="dac_override"
+[    8.411083] audit: type=1400 audit(1795653977.300:212): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=2344 comm="fusermount3" capability=7  capname="setuid"
+[    8.823163] wlp0s20f3: authenticate with b2:e6:f1:67:3b:17 (local address=e0:e2:58:44:7d:c5)
+[    8.823901] wlp0s20f3: send auth to b2:e6:f1:67:3b:17 (try 1/3)
+[    8.851765] wlp0s20f3: authenticated
+[    8.852831] wlp0s20f3: associate with b2:e6:f1:67:3b:17 (try 1/3)
+[    8.860515] wlp0s20f3: RX AssocResp from b2:e6:f1:67:3b:17 (capab=0x411 status=0 aid=1)
+[    8.866348] wlp0s20f3: associated
+[   14.594943] rfkill: input handler enabled
+[   14.851139] audit: type=1400 audit(1795653983.740:213): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=3321 comm="fusermount3" capability=1  capname="dac_override"
+[   14.851155] audit: type=1400 audit(1795653983.740:214): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=3321 comm="fusermount3" capability=7  capname="setuid"
+[   16.324094] rfkill: input handler disabled
+[   16.471409] audit: type=1400 audit(1795653985.467:215): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=3741 comm="fusermount3" capability=1  capname="dac_override"
+[   16.471429] audit: type=1400 audit(1795653985.467:216): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=3741 comm="fusermount3" capability=7  capname="setuid"
+[   17.455667] audit: type=1400 audit(1795653986.533:217): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=4149 comm="fusermount3" capability=1  capname="dac_override"
+[   17.455677] audit: type=1400 audit(1795653986.533:218): apparmor="DENIED" operation="capable" class="cap" profile="fusermount3" pid=4149 comm="fusermount3" capability=7  capname="setuid"
+[   17.459772] audit: type=1400 audit(1795653986.539:219): apparmor="DENIED" operation="mount" class="mount" info="failed mntpnt match" error=-13 profile="fusermount3" name="/" pid=4156 comm="fusermount3" flags="rw, rprivate"
+[  102.545604] warning: `ThreadPoolForeg' uses wireless extensions which will stop working for Wi-Fi 7 hardware; use nl80211
+[  318.278573] audit: type=1400 audit(1795654288.330:220): apparmor="AUDIT" operation="userns_create" class="namespace" info="Userns create - transitioning profile" profile="unconfined" pid=5211 comm="(ubuntu-insigh)" requested="userns_create" target="unprivileged_userns" execpath="/usr/lib/systemd/systemd-executor"
+[  318.280277] audit: type=1400 audit(1795654288.332:221): apparmor="DENIED" operation="capable" class="cap" profile="unprivileged_userns" pid=5211 comm="(ubuntu-insigh)" capability=21  capname="sys_admin"
+[  318.323318] audit: type=1400 audit(1795654288.375:222): apparmor="DENIED" operation="getattr" class="file" info="Failed name lookup - disconnected path" error=-13 profile="unprivileged_userns" name="" pid=5220 comm="systemd-detect-" requested_mask="r" denied_mask="r" fsuid=1000 ouid=0
+[  481.402349] audit: type=1400 audit(1795654450.674:223): apparmor="AUDIT" operation="userns_create" class="namespace" info="Userns create - transitioning profile" profile="unconfined" pid=5353 comm="(ubuntu-insigh)" requested="userns_create" target="unprivileged_userns" execpath="/usr/lib/systemd/systemd-executor"
+[  481.403838] audit: type=1400 audit(1795654450.675:224): apparmor="DENIED" operation="capable" class="cap" profile="unprivileged_userns" pid=5353 comm="(ubuntu-insigh)" capability=21  capname="sys_admin"
+[ 3153.037182] systemd-fstab-generator[10802]: Failed to create unit file '/run/systemd/generator/boot-efi.mount', as it already exists. Duplicate entry in '/etc/fstab'?
+[ 3153.531923] systemd-fstab-generator[10965]: Failed to create unit file '/run/systemd/generator/boot-efi.mount', as it already exists. Duplicate entry in '/etc/fstab'?
+[ 3153.938171] systemd-fstab-generator[11127]: Failed to create unit file '/run/systemd/generator/boot-efi.mount', as it already exists. Duplicate entry in '/etc/fstab'?
+[ 6921.224910] tuxedo_compatibility_check: module verification failed: signature and/or required key missing - tainting kernel
+[ 6921.232886] tuxedo_keyboard: module init
+[ 6921.255917] tuxedo_keyboard: CLEVO_CMD_GET_SPECS result->buffer.pointer[0x0f]: 0x06
+[ 6921.256740] tuxedo_keyboard: CLEVO_CMD_GET_BIOS_FEATURES_2 result_fallback: 0x70020053
+[ 6921.256745] tuxedo_keyboard: Keyboard backlight type: 0x06
+[ 6921.269821] tuxedo_keyboard: Set keyboard enabled to: 1
+[ 6921.274324] tuxedo_keyboard: Set keyboard backlight mode on CUSTOM
+[ 6921.290237] ACPI: battery: new hook: TUXEDO Flexicharger Extension
+[ 6921.290429] input: TUXEDO Keyboard as /devices/platform/tuxedo_keyboard/input/input32
+[ 6921.291959] clevo_acpi: interface initialized
+[ 6921.300680] clevo_wmi: interface initialized
+
+=== [5] Sysfs & Device Discovery ===
+--- /sys/class/leds/ ---
+total 0
+drwxr-xr-x  2 root root 0 Nov 26 08:11 .
+drwxr-xr-x 86 root root 0 Nov 26 08:11 ..
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 enp3s0-0::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-0::lan
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 enp3s0-1::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-1::lan
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 enp3s0-2::lan -> ../../devices/pci0000:00/0000:00:1d.0/0000:03:00.0/net/enp3s0/enp3s0-2::lan
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input4::capslock -> ../../devices/platform/i8042/serio0/input/input4/input4::capslock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input4::numlock -> ../../devices/platform/i8042/serio0/input/input4/input4::numlock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input4::scrolllock -> ../../devices/platform/i8042/serio0/input/input4/input4::scrolllock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::capslock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::capslock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::compose -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::compose
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::kana -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::kana
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::numlock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::numlock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 input6::scrolllock -> ../../devices/pci0000:00/0000:00:14.0/usb3/3-5/3-5:1.0/0003:3554:FC04.0001/input/input6/input6::scrolllock
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 mmc0:: -> ../../devices/pci0000:00/0000:00:1d.2/0000:04:00.0/leds/mmc0::
+lrwxrwxrwx  1 root root 0 Nov 26 06:16 phy0-led -> ../../devices/pci0000:00/0000:00:14.3/leds/phy0-led
+lrwxrwxrwx  1 root root 0 Nov 26 08:11 rgb:kbd_backlight -> ../../devices/platform/tuxedo_keyboard/leds/rgb:kbd_backlight
+--- /sys/devices/platform/tuxedo_keyboard/ ---
+total 0
+drwxr-xr-x  5 root root    0 Nov 26 08:11 .
+drwxr-xr-x 31 root root    0 Nov 26 08:11 ..
+lrwxrwxrwx  1 root root    0 Nov 26 08:11 driver -> ../../../bus/platform/drivers/tuxedo_keyboard
+-rw-r--r--  1 root root 4096 Nov 26 08:11 driver_override
+-rw-r--r--  1 root root 4096 Nov 26 08:11 fn_lock
+drwxr-xr-x  3 root root    0 Nov 26 08:11 input
+drwxr-xr-x  3 root root    0 Nov 26 08:11 leds
+-r--r--r--  1 root root 4096 Nov 26 08:11 modalias
+drwxr-xr-x  2 root root    0 Nov 26 08:11 power
+lrwxrwxrwx  1 root root    0 Nov 26 08:11 subsystem -> ../../../bus/platform
+-rw-r--r--  1 root root 4096 Nov 26 08:11 uevent
+--- /dev/tuxedo_io ---
+crw------- 1 root root 505, 0 Nov 26 08:11 /dev/tuxedo_io
+--- /sys/class/hwmon/ ---
+/sys/class/hwmon/hwmon0: AC
+/sys/class/hwmon/hwmon1: acpitz_0
+/sys/class/hwmon/hwmon2: BAT0
+/sys/class/hwmon/hwmon3: nvme
+/sys/class/hwmon/hwmon4: iwlwifi_1_6
+/sys/class/hwmon/hwmon5: coretemp
+--- /sys/class/power_supply/BAT0/charge_* ---
+-r--r--r-- 1 root root 4096 Nov 26 08:11 /sys/class/power_supply/BAT0/charge_control_end_available_thresholds
+-rw-r--r-- 1 root root 4096 Nov 26 08:11 /sys/class/power_supply/BAT0/charge_control_end_threshold
+-r--r--r-- 1 root root 4096 Nov 26 08:11 /sys/class/power_supply/BAT0/charge_control_start_available_thresholds
+-rw-r--r-- 1 root root 4096 Nov 26 08:11 /sys/class/power_supply/BAT0/charge_control_start_threshold
+-r--r--r-- 1 root root 4096 Nov 26 07:46 /sys/class/power_supply/BAT0/charge_full
+-r--r--r-- 1 root root 4096 Nov 26 07:46 /sys/class/power_supply/BAT0/charge_full_design
+-r--r--r-- 1 root root 4096 Nov 26 07:46 /sys/class/power_supply/BAT0/charge_now
+-rw-r--r-- 1 root root 4096 Nov 26 08:11 /sys/class/power_supply/BAT0/charge_type
+
+=== [6] Keyboard Backlight LED Test ===
+Found keyboard LED: /sys/class/leds/rgb:kbd_backlight
+lrwxrwxrwx 1 root root 0 Nov 26 08:11 /sys/class/leds/rgb:kbd_backlight -> ../../devices/platform/tuxedo_keyboard/leds/rgb:kbd_backlight
+Initial brightness=0 max_brightness=255
+multi_index: red green blue
+Initial multi_intensity: 255 255 255
+Testing brightness: 0 (off) -> 127 -> 255
+Testing RGB colors via multi_intensity + brightness=255:
+  Setting Red (255 0 0)...
+  Setting Green (0 255 0)...
+  Setting Blue (0 0 255)...
+  Setting White (255 255 255)...
+Readback multi_intensity=255 255 255 brightness=255
+
+=== [7] Read-Only Telemetry via /dev/tuxedo_io + ec_sys Cross-Check ===
+[tuxedo_io] R_MOD_VERSION=0.3.9 R_HWCHECK_CL=1 R_HWCHECK_UW=0 R_CL_HW_IF_STR='clevo_acpi'
+[tuxedo_io] R_CL_FANINFO1=0x002f2947 (duty=71/255 27.8%, temp1=41C, temp2=47C)
+[tuxedo_io] R_CL_FANINFO2=0x002d2747 (duty=71/255 27.8%, temp1=39C, temp2=45C)
+[tuxedo_io] R_CL_FANINFO3=0x00002700 (duty=0/255 0.0%, temp1=39C, temp2=0C)
+[tuxedo_io] switches: webcam=1 flightmode=0 touchpad=1
+[tuxedo_io] note: tuxedo_io v0.3.9 has no GET_SPEC (0x0D) or GET_AP_MODE ioctl; check dmesg for PK0D[0x0f] KBTP.
+[ec_sys RO] 0x07(TMP)=47C | 0xCE(DUT1)=71/255 (27.8%) | 0xCF(DUT2)=71/255 (27.8%) | 0xD0..D1(RPM1)=[03 d8] -> 1085 RPM (60M/LE) / 2191 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[03 d8] -> 1085 RPM (60M/LE) / 2191 RPM (2.15M/BE)
+
+=== [8] Safe Fan & Profile Control Test (ONLY if temps < 75 C) ===
+CPU_PKG=47.0C CPU_MAX=47.0C ACPITZ=47.0C GPU=44.0C MAX=47.0C
+--- Step 8a: Explicit fan auto (W_CL_FANAUTO 0x0F) ---
+[tuxedo_io] W_CL_FANAUTO(0x0F) sent -> fans returned to EC auto
+[tuxedo_io] R_MOD_VERSION=0.3.9 R_HWCHECK_CL=1 R_HWCHECK_UW=0 R_CL_HW_IF_STR='clevo_acpi'
+[tuxedo_io] R_CL_FANINFO1=0x00302958 (duty=88/255 34.5%, temp1=41C, temp2=48C)
+[tuxedo_io] R_CL_FANINFO2=0x002d2747 (duty=71/255 27.8%, temp1=39C, temp2=45C)
+[tuxedo_io] R_CL_FANINFO3=0x00002700 (duty=0/255 0.0%, temp1=39C, temp2=0C)
+[tuxedo_io] switches: webcam=1 flightmode=0 touchpad=1
+[tuxedo_io] note: tuxedo_io v0.3.9 has no GET_SPEC (0x0D) or GET_AP_MODE ioctl; check dmesg for PK0D[0x0f] KBTP.
+[ec_sys RO] 0x07(TMP)=48C | 0xCE(DUT1)=88/255 (34.5%) | 0xCF(DUT2)=71/255 (27.8%) | 0xD0..D1(RPM1)=[03 d7] -> 1090 RPM (60M/LE) / 2194 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[03 d8] -> 1085 RPM (60M/LE) / 2191 RPM (2.15M/BE)
+--- Step 8b: Moderate manual fan duty 60% (153/255 on fan1 & fan2) for 6s ---
+[tuxedo_io] W_CL_FANSPEED(0x009999) sent -> fan1=153/255 fan2=153/255 fan3=0/255
+  [t=1s] CPU_PKG=49.0C CPU_MAX=49.0C ACPITZ=48.0C GPU=45.0C MAX=49.0C
+  [t=2s] CPU_PKG=49.0C CPU_MAX=49.0C ACPITZ=49.0C GPU=45.0C MAX=49.0C
+[tuxedo_io] R_MOD_VERSION=0.3.9 R_HWCHECK_CL=1 R_HWCHECK_UW=0 R_CL_HW_IF_STR='clevo_acpi'
+[tuxedo_io] R_CL_FANINFO1=0x00312999 (duty=153/255 60.0%, temp1=41C, temp2=49C)
+[tuxedo_io] R_CL_FANINFO2=0x002e2899 (duty=153/255 60.0%, temp1=40C, temp2=46C)
+[tuxedo_io] R_CL_FANINFO3=0x00002700 (duty=0/255 0.0%, temp1=39C, temp2=0C)
+[tuxedo_io] switches: webcam=1 flightmode=0 touchpad=1
+[tuxedo_io] note: tuxedo_io v0.3.9 has no GET_SPEC (0x0D) or GET_AP_MODE ioctl; check dmesg for PK0D[0x0f] KBTP.
+[ec_sys RO] 0x07(TMP)=49C | 0xCE(DUT1)=153/255 (60.0%) | 0xCF(DUT2)=153/255 (60.0%) | 0xD0..D1(RPM1)=[02 0f] -> 15617 RPM (60M/LE) / 4091 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[02 15] -> 11157 RPM (60M/LE) / 4045 RPM (2.15M/BE)
+  [t=3s] CPU_PKG=47.0C CPU_MAX=47.0C ACPITZ=49.0C GPU=45.0C MAX=49.0C
+  [t=4s] CPU_PKG=50.0C CPU_MAX=50.0C ACPITZ=49.0C GPU=43.0C MAX=50.0C
+  [t=5s] CPU_PKG=49.0C CPU_MAX=49.0C ACPITZ=49.0C GPU=43.0C MAX=49.0C
+[tuxedo_io] R_MOD_VERSION=0.3.9 R_HWCHECK_CL=1 R_HWCHECK_UW=0 R_CL_HW_IF_STR='clevo_acpi'
+[tuxedo_io] R_CL_FANINFO1=0x00312999 (duty=153/255 60.0%, temp1=41C, temp2=49C)
+[tuxedo_io] R_CL_FANINFO2=0x002c2899 (duty=153/255 60.0%, temp1=40C, temp2=44C)
+[tuxedo_io] R_CL_FANINFO3=0x00002800 (duty=0/255 0.0%, temp1=40C, temp2=0C)
+[tuxedo_io] switches: webcam=1 flightmode=0 touchpad=1
+[tuxedo_io] note: tuxedo_io v0.3.9 has no GET_SPEC (0x0D) or GET_AP_MODE ioctl; check dmesg for PK0D[0x0f] KBTP.
+[ec_sys RO] 0x07(TMP)=49C | 0xCE(DUT1)=153/255 (60.0%) | 0xCF(DUT2)=153/255 (60.0%) | 0xD0..D1(RPM1)=[02 11] -> 13780 RPM (60M/LE) / 4076 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[02 15] -> 11157 RPM (60M/LE) / 4045 RPM (2.15M/BE)
+  [t=6s] CPU_PKG=47.0C CPU_MAX=47.0C ACPITZ=48.0C GPU=43.0C MAX=48.0C
+--- Step 8c: Restore fan auto (W_CL_FANAUTO 0x0F) & verify after 3s ---
+[tuxedo_io] W_CL_FANAUTO(0x0F) sent -> fans returned to EC auto
+[tuxedo_io] R_MOD_VERSION=0.3.9 R_HWCHECK_CL=1 R_HWCHECK_UW=0 R_CL_HW_IF_STR='clevo_acpi'
+[tuxedo_io] R_CL_FANINFO1=0x00302a55 (duty=85/255 33.3%, temp1=42C, temp2=48C)
+[tuxedo_io] R_CL_FANINFO2=0x002c2847 (duty=71/255 27.8%, temp1=40C, temp2=44C)
+[tuxedo_io] R_CL_FANINFO3=0x00002800 (duty=0/255 0.0%, temp1=40C, temp2=0C)
+[tuxedo_io] switches: webcam=1 flightmode=0 touchpad=1
+[tuxedo_io] note: tuxedo_io v0.3.9 has no GET_SPEC (0x0D) or GET_AP_MODE ioctl; check dmesg for PK0D[0x0f] KBTP.
+[ec_sys RO] 0x07(TMP)=48C | 0xCE(DUT1)=85/255 (33.3%) | 0xCF(DUT2)=71/255 (27.8%) | 0xD0..D1(RPM1)=[03 3c] -> 3905 RPM (60M/LE) / 2604 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[03 d6] -> 1095 RPM (60M/LE) / 2196 RPM (2.15M/BE)
+--- Step 8d: Test DPTF/performance profile switching (0=quiet, 2=perf, 3=balanced) ---
+[tuxedo_io] W_CL_PERF_PROFILE(0) sent (_DSM 0x79 subcmd 0x19)
+[tuxedo_io] W_CL_PERF_PROFILE(2) sent (_DSM 0x79 subcmd 0x19)
+[tuxedo_io] W_CL_PERF_PROFILE(3) sent (_DSM 0x79 subcmd 0x19)
+[tuxedo_io] R_MOD_VERSION=0.3.9 R_HWCHECK_CL=1 R_HWCHECK_UW=0 R_CL_HW_IF_STR='clevo_acpi'
+[tuxedo_io] R_CL_FANINFO1=0x00302a54 (duty=84/255 32.9%, temp1=42C, temp2=48C)
+[tuxedo_io] R_CL_FANINFO2=0x002c2847 (duty=71/255 27.8%, temp1=40C, temp2=44C)
+[tuxedo_io] R_CL_FANINFO3=0x00002800 (duty=0/255 0.0%, temp1=40C, temp2=0C)
+[tuxedo_io] switches: webcam=1 flightmode=0 touchpad=1
+[tuxedo_io] note: tuxedo_io v0.3.9 has no GET_SPEC (0x0D) or GET_AP_MODE ioctl; check dmesg for PK0D[0x0f] KBTP.
+[ec_sys RO] 0x07(TMP)=48C | 0xCE(DUT1)=84/255 (32.9%) | 0xCF(DUT2)=71/255 (27.8%) | 0xD0..D1(RPM1)=[03 48] -> 3255 RPM (60M/LE) / 2567 RPM (2.15M/BE) | 0xD2..D3(RPM2)=[03 d8] -> 1085 RPM (60M/LE) / 2191 RPM (2.15M/BE)
+
+=== [9] All Step 2 Hardware Probes Completed Successfully ===
+
+=== [CLEANUP TRAP] Running emergency-reset.sh (exit code was 0) ===
+[emergency-reset] Starting emergency reset (restoring fan/profile controls to auto/balanced)...
+[emergency-reset] Restored /dev/tuxedo_io fans -> auto (0x0F) and perf profile -> 3 (balanced/entertainment)
+[emergency-reset] Unloaded module: tuxedo_io
+[emergency-reset] Unloaded module: clevo_wmi
+[emergency-reset] Unloaded module: clevo_acpi
+[emergency-reset] Unloaded module: tuxedo_keyboard
+[emergency-reset] Unloaded module: tuxedo_compatibility_check
+[emergency-reset] Emergency reset completed cleanly.
+=== Step 2 test finished at 2026-11-26T02:41:50Z ===
+Log saved (mode 644): /home/candy/control/control-center/driver/step2_test.log

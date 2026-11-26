@@ -1,0 +1,57 @@
+Available devices:
+Device 'intel_backlight' of class 'backlight':
+	Current brightness: 2400 (5%)
+	Max brightness: 48000
+
+Device 'enp3s0-1::lan' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 255
+
+Device 'input6::numlock' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'input4::capslock' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'input6::kana' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'phy0-led' of class 'leds':
+	Current brightness: 1 (100%)
+	Max brightness: 1
+
+Device 'enp3s0-0::lan' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 255
+
+Device 'input6::scrolllock' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'input4::scrolllock' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'input6::compose' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'input4::numlock' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+
+Device 'mmc0::' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 255
+
+Device 'enp3s0-2::lan' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 255
+
+Device 'input6::capslock' of class 'leds':
+	Current brightness: 0 (0%)
+	Max brightness: 1
+

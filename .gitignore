@@ -1,0 +1,30 @@
+# Cloned third-party research repositories
+research/repos/
+research/clevo_repos/
+
+# Large binary / disassembled ACPI dumps and raw local DMI/boot identifiers
+recon/acpi/acpi.dat
+recon/acpi/extracted/
+recon/dmidecode.txt
+recon/boot_kernel.txt
+
+# Kernel module build artifacts under driver/tuxedo-drivers/
+driver/tuxedo-drivers/**/*.ko
+driver/tuxedo-drivers/**/*.o
+driver/tuxedo-drivers/**/*.o.d
+driver/tuxedo-drivers/**/*.mod
+driver/tuxedo-drivers/**/*.mod.c
+driver/tuxedo-drivers/**/*.mod.o
+driver/tuxedo-drivers/**/*.mod*
+driver/tuxedo-drivers/**/*.cmd
+driver/tuxedo-drivers/**/Module.symvers
+driver/tuxedo-drivers/**/modules.order
+driver/tuxedo-drivers/**/.tmp_versions/
+
+# Python artifacts
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+.coverage

@@ -1,0 +1,53 @@
+=== nvidia-smi ===
+Thu Nov 26 06:57:35 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 595.99.02              Driver Version: 595.99.02      CUDA Version: 13.2     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA GeForce RTX 4050 ...    Off |   00000000:01:00.0 Off |                  N/A |
+| N/A   41C    P3             14W /   35W |      12MiB /   6141MiB |     16%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A            3333      G   /usr/bin/gnome-shell                      1MiB |
++-----------------------------------------------------------------------------------------+
+
+=== nvidia-smi -q -d TEMPERATURE ===
+
+==============NVSMI LOG==============
+
+Timestamp                                              : Thu Nov 26 06:57:35 2026
+Driver Version                                         : 595.99.02
+CUDA Version                                           : 13.2
+
+Attached GPUs                                          : 1
+GPU 00000000:01:00.0
+    Temperature
+        GPU Current Temp                               : 41 C
+        GPU T.Limit Temp                               : 41 C
+        GPU Shutdown T.Limit Temp                      : -5 C
+        GPU Slowdown T.Limit Temp                      : -2 C
+        GPU Max Operating T.Limit Temp                 : 0 C
+        GPU Target Temperature                         : 82 C
+        Memory Current Temp                            : N/A
+        Memory Max Operating T.Limit Temp              : N/A
+
+
+=== lspci -nnk | grep -A3 -Ei 'vga|3d' ===
+00:02.0 VGA compatible controller [0300]: Intel Corporation Raptor Lake-P [Intel Graphics] [8086:a7ab] (rev 04)
+	Subsystem: Acer Incorporated [ALI] Device [1025:1900]
+	Kernel driver in use: i915
+	Kernel modules: i915, xe
+--
+01:00.0 VGA compatible controller [0300]: NVIDIA Corporation AD107M [GeForce RTX 4050 Max-Q / Mobile] [10de:28a1] (rev a1)
+	Subsystem: Acer Incorporated [ALI] Device [1025:1900]
+	Kernel driver in use: nvidia
+	Kernel modules: nvidiafb, nouveau, nvidia_drm, nvidia

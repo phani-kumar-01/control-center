@@ -1,0 +1,13 @@
+=== ls -la /sys/kernel/debug/ec/ ===
+ls: cannot open file '/sys/kernel/debug/ec/': Permission denied
+
+=== lsmod | grep ec_sys ===
+(ec_sys not loaded)
+
+=== sudo -n modprobe ec_sys (read-only, NO write_support=1) ===
+sudo: interactive authentication is required
+[EXIT: 1 - requires interactive sudo]
+
+=== sudo -n hexdump -C /sys/kernel/debug/ec/ec0/io ===
+sudo: interactive authentication is required
+[EXIT: 1 - requires interactive sudo or ec_sys]

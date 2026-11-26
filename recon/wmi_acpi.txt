@@ -1,0 +1,426 @@
+=== lsmod | grep -Ei 'acer|wmi|ec_|ideapad|asus|nitro|predator|linuwu' ===
+snd_hda_codec_intelhdmi    24576  1
+snd_hda_codec_alc269   151552  1
+snd_hda_codec_realtek_lib    65536  1 snd_hda_codec_alc269
+snd_hda_scodec_component    20480  1 snd_hda_codec_alc269
+snd_hda_codec_generic   126976  2 snd_hda_codec_realtek_lib,snd_hda_codec_alc269
+snd_hda_codec_nvhdmi    16384  1
+snd_hda_codec_hdmi     65536  2 snd_hda_codec_nvhdmi,snd_hda_codec_intelhdmi
+snd_hda_codec         212992  11 snd_hda_codec_generic,snd_soc_avs,snd_hda_codec_hdmi,snd_soc_hda_codec,snd_hda_intel,snd_hda_codec_nvhdmi,snd_hda_codec_realtek_lib,snd_soc_hdac_hda,snd_hda_codec_alc269,snd_sof_intel_hda,snd_hda_codec_intelhdmi
+snd_hda_core          151552  13 snd_hda_codec_generic,snd_soc_avs,snd_hda_codec_hdmi,snd_soc_hda_codec,snd_hda_intel,snd_hda_ext_core,snd_hda_codec,snd_sof_intel_hda_common,snd_hda_codec_realtek_lib,snd_soc_hdac_hda,snd_hda_codec_alc269,snd_sof_intel_hda,snd_hda_codec_intelhdmi
+snd_pcm               208896  14 snd_soc_avs,snd_hda_codec_hdmi,snd_hda_intel,snd_hda_codec,soundwire_intel,snd_sof,snd_soc_sdca,snd_sof_intel_hda_common,snd_compress,snd_sof_intel_hda_generic,snd_soc_core,snd_sof_utils,snd_hda_core,snd_pcm_dmaengine
+snd_rawmidi            57344  1 snd_seq_midi
+snd_seq_device         16384  3 snd_seq,snd_seq_midi,snd_rawmidi
+mxm_wmi                12288  0
+snd                   147456  23 snd_hda_codec_generic,snd_seq,snd_seq_device,snd_hda_codec_hdmi,snd_hwdep,snd_hda_intel,snd_hda_codec,snd_sof,snd_soc_sdca,snd_timer,snd_hda_codec_realtek_lib,snd_compress,snd_soc_sdw_utils,snd_hda_codec_alc269,snd_soc_core,snd_pcm,snd_rawmidi
+wmi                    36864  2 video,mxm_wmi
+
+=== ls -la /sys/bus/wmi/devices/ ===
+total 0
+drwxr-xr-x 2 root root 0 Nov 26 06:16 .
+drwxr-xr-x 4 root root 0 Nov 26 06:16 ..
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 ABBC0F6B-8EA1-11D1-00A0-C90629100000 -> ../../../devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/ABBC0F6B-8EA1-11D1-00A0-C90629100000
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 ABBC0F6C-8EA1-11D1-00A0-C90629100000 -> ../../../devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/ABBC0F6C-8EA1-11D1-00A0-C90629100000
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 ABBC0F6D-8EA1-11D1-00A0-C90629100000 -> ../../../devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/ABBC0F6D-8EA1-11D1-00A0-C90629100000
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 -> ../../../devices/pci0000:00/PNP0C14:00/wmi_bus/wmi_bus-PNP0C14:00/F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0
+
+=== WMI devices details ===
+--- /sys/bus/wmi/devices/ABBC0F6B-8EA1-11D1-00A0-C90629100000 ---
+  guid: ABBC0F6B-8EA1-11D1-00A0-C90629100000 
+  modalias: wmi:ABBC0F6B-8EA1-11D1-00A0-C90629100000 
+  uevent: DEVTYPE=event MODALIAS=wmi:ABBC0F6B-8EA1-11D1-00A0-C90629100000 WMI_GUID=ABBC0F6B-8EA1-11D1-00A0-C90629100000 
+  instance_count: 1 
+  notify_id: D0 
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/bus/wmi/devices/ABBC0F6B-8EA1-11D1-00A0-C90629100000 -> ../../../devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/ABBC0F6B-8EA1-11D1-00A0-C90629100000
+--- /sys/bus/wmi/devices/ABBC0F6C-8EA1-11D1-00A0-C90629100000 ---
+  guid: ABBC0F6C-8EA1-11D1-00A0-C90629100000 
+  modalias: wmi:ABBC0F6C-8EA1-11D1-00A0-C90629100000 
+  uevent: DEVTYPE=event MODALIAS=wmi:ABBC0F6C-8EA1-11D1-00A0-C90629100000 WMI_GUID=ABBC0F6C-8EA1-11D1-00A0-C90629100000 
+  instance_count: 1 
+  notify_id: D1 
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/bus/wmi/devices/ABBC0F6C-8EA1-11D1-00A0-C90629100000 -> ../../../devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/ABBC0F6C-8EA1-11D1-00A0-C90629100000
+--- /sys/bus/wmi/devices/ABBC0F6D-8EA1-11D1-00A0-C90629100000 ---
+  guid: ABBC0F6D-8EA1-11D1-00A0-C90629100000 
+  modalias: wmi:ABBC0F6D-8EA1-11D1-00A0-C90629100000 
+  uevent: DEVTYPE=method MODALIAS=wmi:ABBC0F6D-8EA1-11D1-00A0-C90629100000 WMI_GUID=ABBC0F6D-8EA1-11D1-00A0-C90629100000 
+  instance_count: 1 
+  object_id: BB 
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/bus/wmi/devices/ABBC0F6D-8EA1-11D1-00A0-C90629100000 -> ../../../devices/platform/PNP0C14:01/wmi_bus/wmi_bus-PNP0C14:01/ABBC0F6D-8EA1-11D1-00A0-C90629100000
+--- /sys/bus/wmi/devices/F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 ---
+  guid: F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 
+  modalias: wmi:F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 
+  uevent: DEVTYPE=method MODALIAS=wmi:F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 WMI_GUID=F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 
+  instance_count: 1 
+  object_id: MX 
+lrwxrwxrwx 1 root root 0 Nov 26 06:16 /sys/bus/wmi/devices/F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0 -> ../../../devices/pci0000:00/PNP0C14:00/wmi_bus/wmi_bus-PNP0C14:00/F6CB5C3C-9CAE-4EBD-B577-931EA32A2CC0
+
+=== sudo -n dmesg | grep -Ei 'acer|wmi|acpi.*error|acpi.*bios|\bec\b|thermal|fan' ===
+sudo: interactive authentication is required
+[Attempting unprivileged dmesg]
+(unprivileged dmesg failed or no matches)
+
+=== journalctl -k -b | grep -Ei 'acer|wmi|acpi|\bec\b|thermal|fan' ===
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: BIOS-e820: [mem 0x000000003f9df000-0x000000004298efff]  ACPI NVS
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: BIOS-e820: [mem 0x000000004298f000-0x0000000042afefff]  ACPI data
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: efi: ACPI=0x42afe000 ACPI 2.0=0x42afe014 TPMFinalLog=0x42906000 SMBIOS=0x3e008000 MEMATTR=0x36e41018 ESRT=0x37b36318 MOKvar=0x3dfac000 INITRD=0x3703a698 RNG=0x42a23018 TPMEventLog=0x42a16018 
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: DMI: Acer Aspire A715-79G/Aspire A715-79G, BIOS 1.14RA1 09/08/2025
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Early table checksum verification disabled
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: RSDP 0x0000000042AFE014 000024 (v02 ACRSYS)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: XSDT 0x0000000042A42188 00012C (v01 ACRSYS ACRPRDCT 00000002      01000013)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: FACP 0x0000000042AD4000 000114 (v06 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: DSDT 0x0000000042A4B000 0850D6 (v02 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: FACS 0x00000000428DF000 000040
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: UEFI 0x000000004298E000 0001CF (v01 ACRSYS ACRPRDCT 00000001 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042AF8000 004085 (v02 DptfTb DptfTabl 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042AF2000 005D34 (v02 CpuRef CpuSsdt  00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042AEF000 00276F (v02 SaSsdt SaSsdt   00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042AEB000 003325 (v02 INTEL  IgfxSsdt 00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042ADD000 00D7C2 (v02 INTEL  TcssSsdt 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042ADC000 000065 (v01 ACRSYS ACRPRDCT 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042ADB000 00077B (v02 INSYDE Tpm2Tabl 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: TPM2 0x0000000042ADA000 00004C (v04 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: MSDM 0x0000000042AD9000 000055 (v03 ACRSYS ACRPRDCT 00000001 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042AD8000 000065 (v01 ACRSYS ACRPRDCT 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042AD6000 0016A6 (v02 INSYDE UsbCTabl 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: NHLT 0x0000000042AD5000 0002F1 (v00 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: HPET 0x0000000042AD3000 000038 (v01 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: APIC 0x0000000042AD2000 0001DC (v05 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: MCFG 0x0000000042AD1000 00003C (v01 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A46000 0047AF (v02 INSYDE ADL-P-M  00000002      01000013)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: WSMT 0x0000000042A45000 000028 (v01 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A43000 0015FD (v02 INSYDE PtidDevc 00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A38000 0094D1 (v02 INSYDE TbtTypeC 00000000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: DBGP 0x0000000042AFD000 000034 (v01 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: DBG2 0x0000000042A37000 000054 (v00 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: DMAR 0x0000000042A36000 000088 (v01 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A33000 002B09 (v01 NvdRef NvdTabl  00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A32000 000244 (v01 NvdRef NvdExt   00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A30000 001186 (v02 INTEL  xh_adlLP 00000000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A2C000 0039DA (v02 SocGpe SocGpe   00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A28000 0039DA (v02 SocCmn SocCmn   00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0x0000000042A27000 0000F8 (v02 INSYDE PcdTabl  00001000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: FPDT 0x0000000042A26000 000044 (v01 ACRSYS ACRPRDCT 00000002 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: PHAT 0x0000000042A24000 000818 (v01 ACRSYS ACRPRDCT 00000005 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: BGRT 0x0000000042A25000 000038 (v01 ACRSYS ACRPRDCT 00000001 ACPI 00040000)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving FACP table memory at [mem 0x42ad4000-0x42ad4113]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving DSDT table memory at [mem 0x42a4b000-0x42ad00d5]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving FACS table memory at [mem 0x428df000-0x428df03f]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving UEFI table memory at [mem 0x4298e000-0x4298e1ce]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42af8000-0x42afc084]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42af2000-0x42af7d33]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42aef000-0x42af176e]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42aeb000-0x42aee324]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42add000-0x42aea7c1]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42adc000-0x42adc064]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42adb000-0x42adb77a]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving TPM2 table memory at [mem 0x42ada000-0x42ada04b]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving MSDM table memory at [mem 0x42ad9000-0x42ad9054]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42ad8000-0x42ad8064]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42ad6000-0x42ad76a5]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving NHLT table memory at [mem 0x42ad5000-0x42ad52f0]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving HPET table memory at [mem 0x42ad3000-0x42ad3037]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving APIC table memory at [mem 0x42ad2000-0x42ad21db]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving MCFG table memory at [mem 0x42ad1000-0x42ad103b]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a46000-0x42a4a7ae]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving WSMT table memory at [mem 0x42a45000-0x42a45027]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a43000-0x42a445fc]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a38000-0x42a414d0]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving DBGP table memory at [mem 0x42afd000-0x42afd033]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving DBG2 table memory at [mem 0x42a37000-0x42a37053]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving DMAR table memory at [mem 0x42a36000-0x42a36087]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a33000-0x42a35b08]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a32000-0x42a32243]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a30000-0x42a31185]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a2c000-0x42a2f9d9]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a28000-0x42a2b9d9]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving SSDT table memory at [mem 0x42a27000-0x42a270f7]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving FPDT table memory at [mem 0x42a26000-0x42a26043]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving PHAT table memory at [mem 0x42a24000-0x42a24817]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Reserving BGRT table memory at [mem 0x42a25000-0x42a25037]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: PM-Timer IO Port: 0x1808
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x01] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x02] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x03] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x04] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x05] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x06] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x07] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x08] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x09] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x0a] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x0b] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x0c] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x0d] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x0e] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x0f] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x10] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x11] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x12] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x13] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x14] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x15] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x16] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x17] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: LAPIC_NMI (acpi_id[0x00] high edge lint[0x1])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 0 global_irq 2 dfl dfl)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: INT_SRC_OVR (bus 0 bus_irq 9 global_irq 9 high level)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Using ACPI (MADT) for SMP configuration information
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: HPET id: 0x8086a201 base: 0xfed00000
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=12
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Core revision 20251212
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: CPU0: Thermal monitoring enabled (TM1)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: PM: Registering ACPI NVS region [mem 0x3f9df000-0x4298efff] (50003968 bytes)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: thermal_sys: Registered thermal governor 'fair_share'
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: thermal_sys: Registered thermal governor 'bang_bang'
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: thermal_sys: Registered thermal governor 'step_wise'
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: thermal_sys: Registered thermal governor 'user_space'
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: thermal_sys: Registered thermal governor 'power_allocator'
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpiphp: ACPI Hot Plug PCI Controller Driver version: 0.5
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Added _OSI(Module Device)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Added _OSI(Processor Device)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Added _OSI(Processor Aggregator Device)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PC00.MHBR], AE_NOT_FOUND (20251212/psargs-332)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Ignoring error and continuing table load
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PTID.PBAR], AE_NOT_FOUND (20251212/dsfield-500)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: 18 ACPI AML tables successfully acquired and loaded
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_: platform _OSC: OS support mask [006e7eff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_: platform _OSC: OS control mask [006a7eff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D000385000 000394 (v02 PmRef  Cpu0Cst  00003001 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D002B62000 000626 (v02 PmRef  Cpu0Ist  00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D00163E200 0001AB (v02 PmRef  Cpu0Psd  00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D002B66800 0004B5 (v02 PmRef  Cpu0Hwp  00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D002B6E000 001BAF (v02 PmRef  ApIst    00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D002B68000 001038 (v02 PmRef  ApHwp    00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D002B6A000 001349 (v02 PmRef  ApPsd    00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Dynamic OEM Table Load:
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: SSDT 0xFFFF89D002B7A000 000FBB (v02 PmRef  ApCst    00003000 INTL 20200717)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: EC started
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: interrupt blocked
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: EC_CMD/EC_SC=0x66, EC_DATA=0x62
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.LPCB.EC__: Boot DSDT EC used to handle transactions
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Interpreter enabled
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: PM: (supports S0 S3 S4 S5)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Using IOAPIC for interrupt routing
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: PCI: Using host bridge windows from ACPI; if necessary, use "pci=nocrs" and report a bug
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: Enabled 9 GPEs in block 00 to 7F
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.PEG1.PG00: New power resource
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.XHCI.RHUB.HS10.BTRT: New power resource
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.XHCI.RHUB.HS10.DBTR: New power resource
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.CNVW.WRST: New power resource
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \PIN_: New power resource
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: PCI Root Bridge [PC00] (domain 0000 [bus 00-fe])
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0A08:00: _OSC: OS supports [ExtendedConfig ASPM ClockPM Segments MSI EDR HPX-Type3]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0A08:00: _OSC: OS now controls [PCIeHotplug SHPCHotplug PME AER PCIeCapability LTR DPC]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpiphp: Slot [1] registered
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: interrupt unblocked
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: event unblocked
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: EC_CMD/EC_SC=0x66, EC_DATA=0x62
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: EC: GPE=0x6e
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.LPCB.EC__: Boot DSDT EC initialization complete
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: \_SB_.PC00.LPCB.EC__: EC: Used to handle transactions and events
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: bus type USB registered
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: PCI: Using ACPI for IRQ routing
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x002e-0x002f]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x004e-0x004f]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0061]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0063]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0065]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0067]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0068]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x006c]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0070]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0080]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x0092]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Skipped [io  0x00b2-0x00b3]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:00: Reserved [io  0x3322-0x3323]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Reserved [mem 0xfedc0000-0xfedc7fff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Reserved [mem 0xfeda0000-0xfeda0fff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Reserved [mem 0xfeda1000-0xfeda1fff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Reserved [mem 0xc0000000-0xcfffffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Could not reserve [mem 0xfed20000-0xfed7ffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Could not reserve [mem 0xfed90000-0xfed93fff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Could not reserve [mem 0xfed45000-0xfed8ffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:01: Reserved [mem 0xfee00000-0xfeefffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfe000000-0xfe01ffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfe04c000-0xfe04ffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfe050000-0xfe0affff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfe0d0000-0xfe0fffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfe200000-0xfe7fffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xff000000-0xffffffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Could not reserve [io  0x1800-0x18fe]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfd000000-0xfd68ffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfd6b0000-0xfd6cffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:02: Reserved [mem 0xfd6f0000-0xfdffffff]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi PNP0C02:03: Reserved [io  0x2000-0x20fe]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: pnp: PnP ACPI init
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: pnp: PnP ACPI: found 3 devices
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: clocksource: acpi_pm: mask: 0xffffff max_cycles: 0xffffff, max_idle_ns: 2085701024 ns
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: AC: AC Adapter [AC] (off-line)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: button: Power Button [PWRB]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: button: Sleep Button [SLPB]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: button: Lid Switch [LID0]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: button: Power Button [PWRF]
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: acpi LNXTHERM:00: registered as thermal_zone0
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: thermal: Thermal Zone [TZ0] (38 C)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: battery: Slot [BAT0] (battery present)
+Nov 26 06:16:09 candy-Aspire-A715-79G kernel: ACPI: bus type drm_connector registered
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel: ACPI BIOS Error (bug): Could not resolve symbol [^^RP28.PXSX.WIST], AE_NOT_FOUND (20251212/psargs-332)
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel: ACPI Error: Aborting method \_SB.PC00.CNVW.IFUN due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel: ACPI Error: Aborting method \_SB.PC00.CNVW._DSM due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel: Modules linked in: spi_nor(+) iwlmvm(+) kvm_intel nvidia(PO+) nls_iso8859_1 ee1004 mei_pxp mei_hdcp mtd snd_seq_midi intel_rapl_msr snd_seq_midi_event mac80211 kvm i915(+) snd_rawmidi irqbypass rapl libarc4 processor_thermal_device_pci uvcvideo intel_cstate processor_thermal_device processor_thermal_wt_hint btusb snd_seq videobuf2_vmalloc btmtk platform_temperature_control uvc btrtl processor_thermal_soc_slider snd_seq_device btbcm videobuf2_memops btintel drm_buddy videobuf2_v4l2 processor_thermal_rfim snd_timer iwlwifi drm_display_helper r8169 videobuf2_common processor_thermal_rapl drm_ttm_helper bluetooth mxm_wmi snd i2c_i801 intel_rapl_common videodev cec mei_me i2c_smbus spi_intel_pci processor_thermal_wt_req ttm soundcore rc_core spi_intel mc realtek i2c_mux mei processor_thermal_power_floor cfg80211 processor_thermal_mbox i2c_algo_bit platform_profile igen6_edac int3403_thermal int340x_thermal_zone intel_pmc_core pmt_telemetry pmt_discovery int3400_thermal acpi_pad pmt_class acpi_thermal_rel
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel:  intel_hid intel_pmc_ssram_telemetry intel_vsec sparse_keymap joydev input_leds mac_hid sch_fq_codel efi_pstore nvme sdhci_pci nvme_core sdhci_uhs2 nvme_keyring sdhci hid_multitouch nvme_auth ghash_clmulni_intel psmouse cqhci video hkdf i2c_hid_acpi i2c_hid intel_lpss_pci intel_lpss idma64 wmi pinctrl_tigerlake serio_raw hid_generic usbhid hid lp ppdev parport msr dmi_sysfs autofs4 aesni_intel
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel: Hardware name: Acer Aspire A715-79G/Aspire A715-79G, BIOS 1.14RA1 09/08/2025
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel: Code: 8b 3c 24 48 85 ff 74 04 48 8b 7f 08 48 8b 5f 50 48 85 db 74 1f e8 d0 2d 98 ec 48 8d 3d 19 05 32 00 8b 4d d4 48 89 da 48 89 c6 <67> 48 0f b9 3a e9 2f ff ff ff 48 8b 1f eb dc 90 90 90 90 90 90 90
+Nov 26 06:16:12 candy-Aspire-A715-79G kernel:  ? acpi_dev_found+0x64/0x80
+Nov 26 06:16:13 candy-Aspire-A715-79G kernel: ACPI: video: Video Device [GFX0] (multi-head: yes  rom: no  post: no)
+Nov 26 06:16:13 candy-Aspire-A715-79G kernel: input: Video Bus as /devices/pci0000:00/acpi.video_bus.0/input/input20
+Nov 26 06:16:13 candy-Aspire-A715-79G kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_TZ.ETMD], AE_NOT_FOUND (20251212/psargs-332)
+Nov 26 06:16:13 candy-Aspire-A715-79G kernel: ACPI Error: Aborting method \_SB.IETM._OSC due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+Nov 26 06:16:13 candy-Aspire-A715-79G kernel: Consider using thermal netlink events interface
+
+=== ls /sys/devices/platform/ ===
+total 0
+drwxr-xr-x 30 root root    0 Nov 26 06:16 .
+drwxr-xr-x 37 root root    0 Nov 26 06:16 ..
+drwxr-xr-x  5 root root    0 Nov 26 06:16 ACPI0003:00
+drwxr-xr-x  4 root root    0 Nov 26 06:16 ACPI000C:00
+drwxr-xr-x  3 root root    0 Nov 26 06:16 CLV0001:00
+drwxr-xr-x  3 root root    0 Nov 26 06:16 CLV0002:00
+drwxr-xr-x  4 root root    0 Nov 26 06:16 INT33A1:00
+drwxr-xr-x  3 root root    0 Nov 26 06:16 INT340E:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 INTC1051:00
+drwxr-xr-x  7 root root    0 Nov 26 06:16 INTC1055:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 INTC10A0:00
+drwxr-xr-x  3 root root    0 Nov 26 06:16 INTC6001:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 LNXPWRBN:00
+drwxr-xr-x  4 root root    0 Nov 26 06:16 LNXTHERM:00
+drwxr-xr-x  3 root root    0 Nov 26 06:16 NVDA0820:00
+drwxr-xr-x  4 root root    0 Nov 26 06:16 PNP0C0A:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 PNP0C0C:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 PNP0C0D:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 PNP0C0E:00
+drwxr-xr-x  5 root root    0 Nov 26 06:16 PNP0C14:01
+drwxr-xr-x  3 root root    0 Nov 26 06:16 acpi-cpufreq
+drwxr-xr-x  4 root root    0 Nov 26 06:16 coretemp.0
+drwxr-xr-x  3 root root    0 Nov 26 06:16 efivars.0
+drwxr-xr-x  5 root root    0 Nov 26 06:16 i8042
+drwxr-xr-x  3 root root    0 Nov 26 06:16 intel_rapl_msr.0
+drwxr-xr-x  3 root root    0 Nov 26 06:16 kgdboc
+drwxr-xr-x  3 root root    0 Nov 26 06:16 pcspkr
+drwxr-xr-x  2 root root    0 Nov 26 06:57 power
+drwxr-xr-x  3 root root    0 Nov 26 06:16 rtc-efi.0
+drwxr-xr-x  4 root root    0 Nov 26 06:16 serial8250
+-rw-r--r--  1 root root 4096 Nov 26 06:16 uevent
+
+=== ls /sys/firmware/acpi/ ===
+total 0
+drwxr-xr-x 7 root root    0 Nov 26 06:16 .
+drwxr-xr-x 6 root root    0 Nov 26 06:16 ..
+drwxr-xr-x 2 root root    0 Nov 26 06:16 bgrt
+drwxr-xr-x 5 root root    0 Nov 26 06:16 fpdt
+drwxr-xr-x 5 root root    0 Nov 26 06:57 hotplug
+drwxr-xr-x 2 root root    0 Nov 26 06:57 interrupts
+-r--r--r-- 1 root root 4096 Nov 26 06:57 pm_profile
+drwxr-xr-x 4 root root    0 Nov 26 06:16 tables
+
+=== platform_profile ===
+ls: cannot access '/sys/firmware/acpi/platform_profile*': No such file or directory
+cat: /sys/firmware/acpi/platform_profile: No such file or directory
+cat: /sys/firmware/acpi/platform_profile_choices: No such file or directory
+
+=== /sys/class/platform-profile/ (newer kernels) ===
+total 0
+drwxr-xr-x  2 root root 0 Nov 26 06:16 .
+drwxr-xr-x 85 root root 0 Nov 26 06:16 ..
+
+=== /sys/bus/wmi/drivers/ ===
+total 0
+drwxr-xr-x 2 root root 0 Nov 26 06:16 .
+drwxr-xr-x 4 root root 0 Nov 26 06:57 ..
+
+=== modinfo acer_wmi ===
+filename:       /lib/modules/7.0.0-38-generic/kernel/drivers/platform/x86/acer-wmi.ko.zst
+alias:          wmi:676AA15E-6A47-4D9F-A2CC-1E6D18D14026
+alias:          wmi:6AF4F258-B401-42FD-BE91-3D4AC2D7C0D3
+alias:          wmi:67C3371D-95A3-4C37-BB61-DD47B491DAAB
+license:        GPL
+description:    Acer Laptop WMI Extras Driver
+author:         Carlos Corbacho
+srcversion:     A24AB191259DD0B3E10C322
+depends:        platform_profile,wmi,video,sparse-keymap
+intree:         Y
+name:           acer_wmi
+retpoline:      Y
+vermagic:       7.0.0-38-generic SMP preempt mod_unload modversions 
+sig_id:         PKCS#7
+signer:         Build time autogenerated kernel key
+sig_key:        3B:E7:D3:BF:D3:2E:D9:CA:9C:17:D2:E9:5F:1A:1C:AE:67:D5:82:2F
+sig_hashalgo:   sha512
+signature:      27:8C:E2:CA:CA:C0:63:27:2B:33:66:53:C8:C6:F1:D9:76:DE:30:FF:
+		32:C3:67:01:A3:C5:9B:E2:58:88:DB:75:11:13:E1:94:2C:A2:71:5D:
+		79:C3:EE:68:28:52:A4:D6:B2:17:82:EC:32:B8:AB:6B:77:8F:77:DE:
+		3A:7C:12:FD:E0:95:48:BE:96:EA:CE:F0:74:B5:E8:E0:B2:CC:B3:B9:
+		E5:85:3E:F4:F1:36:EA:A0:C7:3D:8E:62:5C:E8:24:E5:6E:2C:7D:8D:
+		C2:14:97:5B:9B:12:52:FC:47:80:4E:95:12:92:AB:8E:3A:C0:1A:1C:
+		02:4E:01:85:CC:09:BA:47:55:45:D6:5A:DD:93:BD:92:A7:44:8D:A8:
+		FD:33:25:C7:4C:F8:F6:F7:28:3F:06:CC:FD:49:98:81:F3:EC:DF:FB:
+		BF:D8:B0:D5:54:1D:2D:9E:8F:82:DB:0C:D1:09:47:93:E7:F3:D9:C3:
+		16:D8:8A:A6:F5:02:61:C3:E7:06:84:FA:30:59:02:E0:5E:FE:E1:44:
+		47:03:BC:1D:7E:79:F6:72:4A:0F:82:35:74:11:6B:FD:02:BF:CA:99:
+		A9:56:F3:AA:28:A4:CB:05:A8:21:48:FF:B6:FE:38:F6:E5:3A:F9:7A:
+		21:52:F4:34:5A:EA:4C:AA:FC:33:77:9D:D5:C5:92:21:CE:12:36:4D:
+		E2:73:28:D1:37:50:BF:79:5B:7D:E4:15:33:BF:AE:50:48:08:1B:4C:
+		F2:00:C0:ED:6C:50:76:38:50:31:13:44:63:B0:B3:1E:0B:52:4D:E4:
+		42:5F:DA:F9:FF:F4:EE:99:6D:C5:EB:A6:EB:C1:A9:E6:74:49:26:AD:
+		69:DF:28:08:FA:71:2C:87:F5:99:D3:18:1D:67:98:DA:FA:EA:06:9D:
+		C6:6B:E1:A6:4D:F3:DA:E9:A2:FF:20:DE:82:A7:7F:73:84:C4:92:51:
+		58:7F:2C:95:8A:6B:3B:E4:2E:93:24:B4:10:8D:C2:AB:6E:94:26:30:
+		91:F9:BB:53:B8:03:39:58:B4:8B:09:C1:AC:3B:31:B7:C6:45:D5:59:
+		3A:45:E3:01:6A:66:D0:D9:52:CF:72:29:1B:47:3A:08:1A:6C:CA:23:
+		3F:6E:D1:AB:47:E3:7A:0B:16:58:11:7E:50:FF:21:3E:BC:91:6F:3A:
+		B6:5E:1F:E7:E8:D6:D1:43:2C:17:5B:B8:10:7A:4E:60:CA:44:CF:43:
+		44:84:29:6C:A8:AC:E8:F5:3F:53:09:2E:1D:D3:61:9D:77:2A:1C:41:
+		56:20:DD:5A:0C:68:E8:4F:6E:C4:86:18:15:DD:A5:59:B0:98:44:7D:
+		B7:37:D2:DD:E7:13:CE:F0:31:7A:F9:A7
+parm:           mailled:Set initial state of Mail LED (int)
+parm:           brightness:Set initial LCD backlight brightness (int)
+parm:           threeg:Set initial state of 3G hardware (int)
+parm:           force_series:Force a different laptop series (int)
+parm:           force_caps:Force the capability bitmask to this value (int)
+parm:           ec_raw_mode:Enable EC raw mode (bool)
+parm:           cycle_gaming_thermal_profile:Set thermal mode key in cycle mode. Disabling it sets the mode key in turbo toggle mode (bool)
+parm:           predator_v4:Enable features for predator laptops that use predator sense v4 (bool)
+
+=== Interesting platform device uevents ===
+--- PNP0C14:01 ---
+DRIVER=acpi-wmi
+MODALIAS=acpi:PNP0C14:
+modalias: acpi:PNP0C14:
+--- CLV0001:00 ---
+MODALIAS=acpi:CLV0001:
+modalias: acpi:CLV0001:
+--- CLV0002:00 ---
+MODALIAS=acpi:CLV0002:
+modalias: acpi:CLV0002:
+--- INTC1055:00 ---
+DRIVER=tigerlake-pinctrl
+MODALIAS=acpi:INTC1055:
+modalias: acpi:INTC1055:
+--- INTC1051:00 ---
+DRIVER=intel-hid
+MODALIAS=acpi:INTC1051:
+modalias: acpi:INTC1051:
+--- INTC10A0:00 ---
+DRIVER=int3400 thermal
+MODALIAS=acpi:INTC10A0:
+modalias: acpi:INTC10A0:
+
+=== Check /sys/kernel/debug/ec or /dev/ec ===
+ls: cannot access '/sys/bus/acpi/drivers/ec/': No such file or directory

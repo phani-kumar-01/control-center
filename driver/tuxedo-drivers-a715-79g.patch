@@ -1,0 +1,484 @@
+diff -ruN '--exclude=.git' '--exclude=*.ko' '--exclude=*.o' '--exclude=*.o.d' '--exclude=*.mod*' '--exclude=*.cmd' '--exclude=Module.symvers' '--exclude=modules.order' '--exclude=.tmp_versions' /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/dkms.conf /home/candy/control/control-center/driver/tuxedo-drivers/dkms.conf
+--- /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/dkms.conf	1970-01-01 05:30:00.000000000 +0530
++++ /home/candy/control/control-center/driver/tuxedo-drivers/dkms.conf	2026-11-26 08:29:48.828335711 +0530
+@@ -0,0 +1,25 @@
++PACKAGE_NAME="tuxedo-drivers-a715-79g"
++PACKAGE_VERSION="4.25.2"
++AUTOINSTALL="yes"
++MAKE[0]="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build modules"
++CLEAN="make -C ${kernel_source_dir} M=${dkms_tree}/${PACKAGE_NAME}/${PACKAGE_VERSION}/build clean"
++
++BUILT_MODULE_NAME[0]="tuxedo_compatibility_check"
++BUILT_MODULE_LOCATION[0]="src/tuxedo_compatibility_check"
++DEST_MODULE_LOCATION[0]="/updates/dkms"
++
++BUILT_MODULE_NAME[1]="tuxedo_keyboard"
++BUILT_MODULE_LOCATION[1]="src"
++DEST_MODULE_LOCATION[1]="/updates/dkms"
++
++BUILT_MODULE_NAME[2]="clevo_acpi"
++BUILT_MODULE_LOCATION[2]="src"
++DEST_MODULE_LOCATION[2]="/updates/dkms"
++
++BUILT_MODULE_NAME[3]="clevo_wmi"
++BUILT_MODULE_LOCATION[3]="src"
++DEST_MODULE_LOCATION[3]="/updates/dkms"
++
++BUILT_MODULE_NAME[4]="tuxedo_io"
++BUILT_MODULE_LOCATION[4]="src/tuxedo_io"
++DEST_MODULE_LOCATION[4]="/updates/dkms"
+diff -ruN '--exclude=.git' '--exclude=*.ko' '--exclude=*.o' '--exclude=*.o.d' '--exclude=*.mod*' '--exclude=*.cmd' '--exclude=Module.symvers' '--exclude=modules.order' '--exclude=.tmp_versions' /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/Makefile /home/candy/control/control-center/driver/tuxedo-drivers/Makefile
+--- /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/Makefile	2026-11-26 07:30:40.199640153 +0530
++++ /home/candy/control/control-center/driver/tuxedo-drivers/Makefile	2026-11-26 08:30:19.243128501 +0530
+@@ -23,14 +23,14 @@
+ KDIR := /lib/modules/$(shell uname -r)/build
+ 
+ all:
+-	make -C $(KDIR) M=$(PWD) $(MAKEFLAGS) modules
++	make -C $(KDIR) M=$(CURDIR) $(MAKEFLAGS) modules
+ 
+ install: all
+-	make -C $(KDIR) M=$(PWD) $(MAKEFLAGS) modules_install
++	make -C $(KDIR) M=$(CURDIR) $(MAKEFLAGS) modules_install
+ 	cp -r usr /
+ 
+ clean:
+-	make -C $(KDIR) M=$(PWD) $(MAKEFLAGS) clean
++	make -C $(KDIR) M=$(CURDIR) $(MAKEFLAGS) clean
+ 	rm -rf build/
+ 
+ package: package-deb package-rpm package-alpm
+diff -ruN '--exclude=.git' '--exclude=*.ko' '--exclude=*.o' '--exclude=*.o.d' '--exclude=*.mod*' '--exclude=*.cmd' '--exclude=Module.symvers' '--exclude=modules.order' '--exclude=.tmp_versions' /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/clevo_acpi.c /home/candy/control/control-center/driver/tuxedo-drivers/src/clevo_acpi.c
+--- /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/clevo_acpi.c	2026-11-26 07:30:40.201701110 +0530
++++ /home/candy/control/control-center/driver/tuxedo-drivers/src/clevo_acpi.c	2026-11-26 08:29:26.289748226 +0530
+@@ -23,6 +23,7 @@
+ #include <linux/module.h>
+ #include <linux/platform_device.h>
+ #include <linux/acpi.h>
++#include <linux/hwmon.h>
+ #include <linux/version.h>
+ #include "clevo_interfaces.h"
+ 
+@@ -31,6 +32,7 @@
+ struct clevo_platform_driver_data_t {
+ 	struct acpi_device *adev;
+ 	struct clevo_interface_t *clevo_interface;
++	struct device *hwmon_dev;
+ };
+ 
+ static struct clevo_platform_driver_data_t *active_driver_data = NULL;
+@@ -71,11 +73,11 @@
+ 	if (!out_obj) {
+ 		pr_err("failed to evaluate _DSM\n");
+ 		status = -1;
+-	}
+-	else {
+-		if (!IS_ERR_OR_NULL(result)) {
++	} else {
++		if (!IS_ERR_OR_NULL(result))
+ 			*result = out_obj;
+-		}
++		else
++			ACPI_FREE(out_obj);
+ 	}
+ 
+ 	return status;
+@@ -118,11 +120,11 @@
+ 	if (!out_obj) {
+ 		pr_err("failed to evaluate _DSM\n");
+ 		status = -1;
+-	}
+-	else {
+-		if (!IS_ERR_OR_NULL(result)) {
++	} else {
++		if (!IS_ERR_OR_NULL(result))
+ 			*result = out_obj;
+-		}
++		else
++			ACPI_FREE(out_obj);
+ 	}
+ 
+ 	return status;
+@@ -168,7 +170,7 @@
+ static void clevo_acpi_notify(acpi_handle handle, u32 event, void *data)
+ {
+ 	struct acpi_device *adev = data;
+-	u32 event_value;
++	u32 event_value = 0;
+ 	union acpi_object *out_obj;
+ 	int status;
+ 
+@@ -193,6 +195,154 @@
+ }
+ 
+ 
++static umode_t clevo_hwmon_is_visible(const void *drvdata,
++				      enum hwmon_sensor_types type,
++				      u32 attr, int channel)
++{
++	switch (type) {
++	case hwmon_fan:
++		if (channel >= 0 && channel < 2 &&
++		    (attr == hwmon_fan_input || attr == hwmon_fan_label))
++			return 0444;
++		break;
++	case hwmon_temp:
++		if (channel >= 0 && channel < 2 &&
++		    (attr == hwmon_temp_input || attr == hwmon_temp_label))
++			return 0444;
++		break;
++	case hwmon_pwm:
++		if (channel >= 0 && channel < 2 && attr == hwmon_pwm_input)
++			return 0444;
++		break;
++	default:
++		break;
++	}
++
++	return 0;
++}
++
++static int clevo_hwmon_read_string(struct device *dev,
++				   enum hwmon_sensor_types type,
++				   u32 attr, int channel, const char **str)
++{
++	switch (type) {
++	case hwmon_fan:
++		if (attr == hwmon_fan_label) {
++			*str = (channel == 0) ? "CPU Fan" : "GPU Fan";
++			return 0;
++		}
++		break;
++	case hwmon_temp:
++		if (attr == hwmon_temp_label) {
++			*str = (channel == 0) ? "CPU" : "GPU";
++			return 0;
++		}
++		break;
++	default:
++		break;
++	}
++
++	return -EOPNOTSUPP;
++}
++
++static int clevo_hwmon_read(struct device *dev, enum hwmon_sensor_types type,
++			  u32 attr, int channel, long *val)
++{
++	struct clevo_platform_driver_data_t *data = dev_get_drvdata(dev);
++	union acpi_object *out_obj = NULL;
++	int status;
++
++	if (!data || !data->adev)
++		return -ENODEV;
++
++	switch (type) {
++	case hwmon_fan:
++		if (attr != hwmon_fan_input || channel < 0 || channel > 1)
++			return -EOPNOTSUPP;
++		status = clevo_acpi_evaluate(data->adev, 0x0C, 0, &out_obj);
++		if (status)
++			return status;
++		if (!out_obj || out_obj->type != ACPI_TYPE_BUFFER ||
++		    out_obj->buffer.length < 6) {
++			if (out_obj)
++				ACPI_FREE(out_obj);
++			return -EIO;
++		}
++		{
++			const u8 *buf = out_obj->buffer.pointer;
++			u16 be16 = ((u16)buf[2 + 2 * channel] << 8) |
++				   buf[3 + 2 * channel];
++			ACPI_FREE(out_obj);
++			*val = (be16 == 0 || be16 == 0xffff) ? 0 : (2156220L / be16);
++		}
++		return 0;
++
++	case hwmon_temp:
++		if (attr != hwmon_temp_input || channel < 0 || channel > 1)
++			return -EOPNOTSUPP;
++		status = clevo_acpi_evaluate(data->adev,
++					     channel == 0 ? CLEVO_CMD_GET_FANINFO1 : CLEVO_CMD_GET_FANINFO2,
++					     0, &out_obj);
++		if (status)
++			return status;
++		if (!out_obj || out_obj->type != ACPI_TYPE_INTEGER) {
++			if (out_obj)
++				ACPI_FREE(out_obj);
++			return -EIO;
++		}
++		{
++			long temp = ((u32)out_obj->integer.value >> 16) & 0xFF;
++			ACPI_FREE(out_obj);
++			*val = temp * 1000L;
++		}
++		return 0;
++
++	case hwmon_pwm:
++		if (attr != hwmon_pwm_input || channel < 0 || channel > 1)
++			return -EOPNOTSUPP;
++		status = clevo_acpi_evaluate(data->adev,
++					     channel == 0 ? CLEVO_CMD_GET_FANINFO1 : CLEVO_CMD_GET_FANINFO2,
++					     0, &out_obj);
++		if (status)
++			return status;
++		if (!out_obj || out_obj->type != ACPI_TYPE_INTEGER) {
++			if (out_obj)
++				ACPI_FREE(out_obj);
++			return -EIO;
++		}
++		*val = (long)(out_obj->integer.value & 0xFF);
++		ACPI_FREE(out_obj);
++		return 0;
++
++	default:
++		return -EOPNOTSUPP;
++	}
++}
++
++static const struct hwmon_channel_info * const clevo_hwmon_info[] = {
++	HWMON_CHANNEL_INFO(fan,
++			   HWMON_F_INPUT | HWMON_F_LABEL,
++			   HWMON_F_INPUT | HWMON_F_LABEL),
++	HWMON_CHANNEL_INFO(temp,
++			   HWMON_T_INPUT | HWMON_T_LABEL,
++			   HWMON_T_INPUT | HWMON_T_LABEL),
++	HWMON_CHANNEL_INFO(pwm,
++			   HWMON_PWM_INPUT,
++			   HWMON_PWM_INPUT),
++	NULL
++};
++
++static const struct hwmon_ops clevo_hwmon_ops = {
++	.is_visible = clevo_hwmon_is_visible,
++	.read = clevo_hwmon_read,
++	.read_string = clevo_hwmon_read_string,
++};
++
++static const struct hwmon_chip_info clevo_hwmon_chip_info = {
++	.ops = &clevo_hwmon_ops,
++	.info = clevo_hwmon_info,
++};
++
+ static int clevo_platform_probe(struct platform_device *pdev)
+ {
+ 	struct clevo_platform_driver_data_t *driver_data;
+@@ -214,8 +364,17 @@
+ 	driver_data->adev = acpi;
+ 	driver_data->clevo_interface = &clevo_acpi_interface;
+ 
++	platform_set_drvdata(pdev, driver_data);
+ 	active_driver_data = driver_data;
+ 
++	driver_data->hwmon_dev = devm_hwmon_device_register_with_info(
++		&pdev->dev, DRIVER_NAME, driver_data, &clevo_hwmon_chip_info, NULL);
++	if (IS_ERR(driver_data->hwmon_dev)) {
++		pr_warn("failed to register hwmon device (%ld)\n",
++			PTR_ERR(driver_data->hwmon_dev));
++		driver_data->hwmon_dev = NULL;
++	}
++
+ 	pr_debug("clevo_acpi driver add\n");
+ 
+ 	// Add this interface
+diff -ruN '--exclude=.git' '--exclude=*.ko' '--exclude=*.o' '--exclude=*.o.d' '--exclude=*.mod*' '--exclude=*.cmd' '--exclude=Module.symvers' '--exclude=modules.order' '--exclude=.tmp_versions' /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/clevo_leds.h /home/candy/control/control-center/driver/tuxedo-drivers/src/clevo_leds.h
+--- /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/clevo_leds.h	2026-11-26 07:30:40.201701110 +0530
++++ /home/candy/control/control-center/driver/tuxedo-drivers/src/clevo_leds.h	2026-11-26 08:06:19.991621557 +0530
+@@ -336,17 +336,18 @@
+ 		status = clevo_evaluate_method2(CLEVO_CMD_GET_SPECS, 0, &result);
+ 		if (!status) {
+ 			if (result->type == ACPI_TYPE_BUFFER) {
+-				pr_debug("CLEVO_CMD_GET_SPECS result->buffer.pointer[0x0f]: 0x%02x\n", result->buffer.pointer[0x0f]);
++				pr_info("CLEVO_CMD_GET_SPECS result->buffer.pointer[0x0f]: 0x%02x\n", result->buffer.pointer[0x0f]);
+ 				clevo_kb_backlight_type = result->buffer.pointer[0x0f];
+ 				if (clevo_kb_backlight_type) {
+ 					status = clevo_evaluate_method(CLEVO_CMD_GET_BIOS_FEATURES_2, 0, &result_fallback);
+ 					if (!status) {
+-						pr_debug("CLEVO_CMD_GET_BIOS_FEATURES_2 result_fallback: 0x%08x\n", result_fallback);
++						pr_info("CLEVO_CMD_GET_BIOS_FEATURES_2 result_fallback: 0x%08x\n", result_fallback);
+ 						if (result_fallback & CLEVO_CMD_GET_BIOS_FEATURES_2_SUB_WHITE_ONLY_KB_MAX_5) {
+ 							clevo_led_cdev.max_brightness = CLEVO_KBD_BRIGHTNESS_WHITE_MAX_5;
+ 							clevo_led_cdev.brightness = CLEVO_KBD_BRIGHTNESS_WHITE_MAX_5_DEFAULT;
+ 						}
+ 					}
++					ACPI_FREE(result);
+ 					break;
+ 				} else {
+ 					pr_debug("clevo_kb_backlight_type 0x00 probably wrong, retrying...\n");
+@@ -368,7 +369,7 @@
+ 		// check for devices <= Intel 8th gen (only white only, 3 zone RGB, or no backlight on these devices)
+ 		status = clevo_evaluate_method(CLEVO_CMD_GET_BIOS_FEATURES_1, 0, &result_fallback);
+ 		if (!status) {
+-			pr_debug("CLEVO_CMD_GET_BIOS_FEATURES_1 result_fallback: 0x%08x\n", result_fallback);
++			pr_info("CLEVO_CMD_GET_BIOS_FEATURES_1 result_fallback: 0x%08x\n", result_fallback);
+ 			if (result_fallback & CLEVO_CMD_GET_BIOS_FEATURES_1_SUB_3_ZONE_RGB_KB) {
+ 				clevo_kb_backlight_type = CLEVO_KB_BACKLIGHT_TYPE_3_ZONE_RGB;
+ 			}
+@@ -377,7 +378,7 @@
+ 
+ 				status = clevo_evaluate_method(CLEVO_CMD_GET_BIOS_FEATURES_2, 0, &result_fallback);
+ 				if (!status) {
+-					pr_debug("CLEVO_CMD_GET_BIOS_FEATURES_2 result_fallback: 0x%08x\n", result_fallback);
++					pr_info("CLEVO_CMD_GET_BIOS_FEATURES_2 result_fallback: 0x%08x\n", result_fallback);
+ 					if (result_fallback & CLEVO_CMD_GET_BIOS_FEATURES_2_SUB_WHITE_ONLY_KB_MAX_5) {
+ 						clevo_led_cdev.max_brightness = CLEVO_KBD_BRIGHTNESS_WHITE_MAX_5;
+ 						clevo_led_cdev.brightness = CLEVO_KBD_BRIGHTNESS_WHITE_MAX_5_DEFAULT;
+@@ -392,7 +393,7 @@
+ 			pr_notice("CLEVO_CMD_GET_BIOS_FEATURES_1 does not exist on this device or failed\n");
+ 		}
+ 	}
+-	pr_debug("Keyboard backlight type: 0x%02x\n", clevo_kb_backlight_type);
++	pr_info("Keyboard backlight type: 0x%02x\n", clevo_kb_backlight_type);
+ 
+ 	// detection of N14xWUs white keyboard backlight with five steps fails
+ 	// old DMI strings may have trailing spaces (dmi_string_in for substring match)
+diff -ruN '--exclude=.git' '--exclude=*.ko' '--exclude=*.o' '--exclude=*.o.d' '--exclude=*.mod*' '--exclude=*.cmd' '--exclude=Module.symvers' '--exclude=modules.order' '--exclude=.tmp_versions' /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/tuxedo_compatibility_check/tuxedo_compatibility_check.c /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_compatibility_check/tuxedo_compatibility_check.c
+--- /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/tuxedo_compatibility_check/tuxedo_compatibility_check.c	2026-11-26 07:30:40.203903399 +0530
++++ /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_compatibility_check/tuxedo_compatibility_check.c	2026-11-26 08:06:17.737633862 +0530
+@@ -216,6 +216,12 @@
+ 			DMI_MATCH(DMI_CHASSIS_VENDOR, "TUXEDO"),
+ 		},
+ 	},
++	{
++		.matches = {
++			DMI_MATCH(DMI_SYS_VENDOR, "Acer"),
++			DMI_MATCH(DMI_PRODUCT_NAME, "Aspire A715-79G"),
++		},
++	},
+ 	{ }
+ };
+ 
+diff -ruN '--exclude=.git' '--exclude=*.ko' '--exclude=*.o' '--exclude=*.o.d' '--exclude=*.mod*' '--exclude=*.cmd' '--exclude=Module.symvers' '--exclude=modules.order' '--exclude=.tmp_versions' /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/tuxedo_io/tuxedo_io.c /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_io/tuxedo_io.c
+--- /home/candy/control/control-center/research/clevo_repos/tuxedo-drivers/src/tuxedo_io/tuxedo_io.c	2026-11-26 07:30:40.204056600 +0530
++++ /home/candy/control/control-center/driver/tuxedo-drivers/src/tuxedo_io/tuxedo_io.c	2026-11-26 08:29:47.206293435 +0530
+@@ -30,6 +30,9 @@
+ #include <linux/delay.h>
+ #include <linux/version.h>
+ #include <linux/dmi.h>
++#include <linux/workqueue.h>
++#include <linux/mutex.h>
++#include <linux/reboot.h>
+ #include "../clevo_interfaces.h"
+ #include "../uniwill_interfaces.h"
+ #include "tuxedo_io_ioctl.h"
+@@ -47,6 +50,56 @@
+ 
+ #define NB01_FAN_SPEED_MAX 0xff
+ #define FAN_ON_MIN_SPEED_PERCENT 25
++#define CLEVO_FAN_WATCHDOG_MS 15000
++
++static DEFINE_MUTEX(clevo_fan_lock);
++static bool clevo_fan_manual_active;
++static struct delayed_work clevo_fan_watchdog_work;
++
++static void clevo_fan_watchdog_work_fn(struct work_struct *work)
++{
++	u32 result = 0;
++
++	mutex_lock(&clevo_fan_lock);
++	if (!clevo_fan_manual_active) {
++		mutex_unlock(&clevo_fan_lock);
++		return;
++	}
++	clevo_fan_manual_active = false;
++	mutex_unlock(&clevo_fan_lock);
++
++	pr_warn("Clevo fan watchdog expired (15s), restoring EC auto\n");
++	clevo_evaluate_method(CLEVO_CMD_SET_FANSPEED_AUTO, 0x0F, &result);
++}
++
++static void clevo_fan_watchdog_release(void)
++{
++	bool was_active;
++	u32 result = 0;
++
++	mutex_lock(&clevo_fan_lock);
++	was_active = clevo_fan_manual_active;
++	clevo_fan_manual_active = false;
++	mutex_unlock(&clevo_fan_lock);
++
++	cancel_delayed_work_sync(&clevo_fan_watchdog_work);
++
++	if (was_active) {
++		pr_info("restoring Clevo fans to EC auto\n");
++		clevo_evaluate_method(CLEVO_CMD_SET_FANSPEED_AUTO, 0x0F, &result);
++	}
++}
++
++static int clevo_fan_reboot_notifier_cb(struct notifier_block *nb,
++					unsigned long action, void *data)
++{
++	clevo_fan_watchdog_release();
++	return NOTIFY_DONE;
++}
++
++static struct notifier_block clevo_fan_reboot_notifier = {
++	.notifier_call = clevo_fan_reboot_notifier_cb,
++};
+ 
+ // Initialized in module init, global for ioctl interface
+ static u32 id_check_clevo;
+@@ -359,7 +412,13 @@
+ 			argument |= fanspeeds[1] << 8;
+ 			argument |= fanspeeds[2] << 16;
+ 
+-			clevo_evaluate_method(CLEVO_CMD_SET_FANSPEED_VALUE, argument, &result);
++			if (clevo_evaluate_method(CLEVO_CMD_SET_FANSPEED_VALUE, argument, &result) == 0) {
++				mutex_lock(&clevo_fan_lock);
++				clevo_fan_manual_active = true;
++				mod_delayed_work(system_wq, &clevo_fan_watchdog_work,
++						 msecs_to_jiffies(CLEVO_FAN_WATCHDOG_MS));
++				mutex_unlock(&clevo_fan_lock);
++			}
+ 			// Note: Delay needed to let hardware catch up with the written value.
+ 			// No known ready flag. If the value is read too soon, the old value
+ 			// will still be read out.
+@@ -369,6 +428,10 @@
+ 			break;
+ 		case W_CL_FANAUTO:
+ 			copy_result = copy_from_user(&argument, (int32_t *) arg, sizeof(argument));
++			mutex_lock(&clevo_fan_lock);
++			clevo_fan_manual_active = false;
++			mutex_unlock(&clevo_fan_lock);
++			cancel_delayed_work_sync(&clevo_fan_watchdog_work);
+ 			clevo_evaluate_method(CLEVO_CMD_SET_FANSPEED_AUTO, argument, &result);
+ 			break;
+ 		case W_CL_WEBCAM_SW:
+@@ -783,6 +846,8 @@
+ {
+ 	int err;
+ 
++	INIT_DELAYED_WORK(&clevo_fan_watchdog_work, clevo_fan_watchdog_work_fn);
++
+ 	// Hardware identification
+ 	id_check_clevo = clevo_identify();
+ 	id_check_uniwill = uniwill_identify();
+@@ -805,6 +870,7 @@
+ 	if (err < 0) {
+ 		pr_err("Failed to add cdev\n");
+ 		unregister_chrdev_region(tuxedo_io_device_handle, 1);
++		return err;
+ 	}
+ 
+ #if LINUX_VERSION_CODE < KERNEL_VERSION(6, 4, 0)
+@@ -814,6 +880,11 @@
+ #endif
+ 
+ 	device_create(tuxedo_io_device_class, NULL, tuxedo_io_device_handle, NULL, "tuxedo_io");
++
++	err = register_reboot_notifier(&clevo_fan_reboot_notifier);
++	if (err)
++		pr_warn("Failed to register Clevo fan reboot notifier (%d)\n", err);
++
+ 	pr_debug("Module init successful\n");
+ 
+ 	return 0;
+@@ -821,6 +892,8 @@
+ 
+ static void __exit tuxedo_io_exit(void)
+ {
++	unregister_reboot_notifier(&clevo_fan_reboot_notifier);
++	clevo_fan_watchdog_release();
+ 	device_destroy(tuxedo_io_device_class, tuxedo_io_device_handle);
+ 	class_destroy(tuxedo_io_device_class);
+ 	cdev_del(&tuxedo_io_cdev);

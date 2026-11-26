@@ -1,0 +1,34 @@
+[    0.000000] efi: ACPI=0x42afe000 ACPI 2.0=0x42afe014 TPMFinalLog=0x42906000 SMBIOS=0x3e008000 MEMATTR=0x36e41018 ESRT=0x37b36318 MOKvar=0x3dfac000 INITRD=0x3703a698 RNG=0x42a23018 TPMEventLog=0x42a16018 
+[    0.000000] DMI: Acer Aspire A715-79G/Aspire A715-79G, BIOS 1.14RA1 09/08/2025
+[    0.102018] rcu: Adjusting geometry for rcu_fanout_leaf=16, nr_cpu_ids=12
+[    0.121400] CPU0: Thermal monitoring enabled (TM1)
+[    0.170560] thermal_sys: Registered thermal governor 'fair_share'
+[    0.170560] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.170560] thermal_sys: Registered thermal governor 'step_wise'
+[    0.170560] thermal_sys: Registered thermal governor 'user_space'
+[    0.170560] thermal_sys: Registered thermal governor 'power_allocator'
+[    0.310291] ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PC00.MHBR], AE_NOT_FOUND (20251212/psargs-332)
+[    0.310308] ACPI: Ignoring error and continuing table load
+[    0.310333] ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PTID.PBAR], AE_NOT_FOUND (20251212/dsfield-500)
+[    0.356182] ACPI: EC: EC started
+[    0.356184] ACPI: EC: interrupt blocked
+[    0.368423] ACPI: EC: EC_CMD/EC_SC=0x66, EC_DATA=0x62
+[    0.368427] ACPI: \_SB_.PC00.LPCB.EC__: Boot DSDT EC used to handle transactions
+[    0.460583] ACPI: EC: interrupt unblocked
+[    0.460586] ACPI: EC: event unblocked
+[    0.460602] ACPI: EC: EC_CMD/EC_SC=0x66, EC_DATA=0x62
+[    0.460603] ACPI: EC: GPE=0x6e
+[    0.460605] ACPI: \_SB_.PC00.LPCB.EC__: Boot DSDT EC initialization complete
+[    0.460607] ACPI: \_SB_.PC00.LPCB.EC__: EC: Used to handle transactions and events
+[    0.563731] acpi LNXTHERM:00: registered as thermal_zone0
+[    0.563759] ACPI: thermal: Thermal Zone [TZ0] (38 C)
+[    3.435542] ACPI BIOS Error (bug): Could not resolve symbol [^^RP28.PXSX.WIST], AE_NOT_FOUND (20251212/psargs-332)
+[    3.435623] ACPI Error: Aborting method \_SB.PC00.CNVW.IFUN due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+[    3.435634] ACPI Error: Aborting method \_SB.PC00.CNVW._DSM due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+[    4.021159] Modules linked in: spi_nor(+) iwlmvm(+) kvm_intel nvidia(PO+) nls_iso8859_1 ee1004 mei_pxp mei_hdcp mtd snd_seq_midi intel_rapl_msr snd_seq_midi_event mac80211 kvm i915(+) snd_rawmidi irqbypass rapl libarc4 processor_thermal_device_pci uvcvideo intel_cstate processor_thermal_device processor_thermal_wt_hint btusb snd_seq videobuf2_vmalloc btmtk platform_temperature_control uvc btrtl processor_thermal_soc_slider snd_seq_device btbcm videobuf2_memops btintel drm_buddy videobuf2_v4l2 processor_thermal_rfim snd_timer iwlwifi drm_display_helper r8169 videobuf2_common processor_thermal_rapl drm_ttm_helper bluetooth mxm_wmi snd i2c_i801 intel_rapl_common videodev cec mei_me i2c_smbus spi_intel_pci processor_thermal_wt_req ttm soundcore rc_core spi_intel mc realtek i2c_mux mei processor_thermal_power_floor cfg80211 processor_thermal_mbox i2c_algo_bit platform_profile igen6_edac int3403_thermal int340x_thermal_zone intel_pmc_core pmt_telemetry pmt_discovery int3400_thermal acpi_pad pmt_class acpi_thermal_rel
+[    4.021218]  intel_hid intel_pmc_ssram_telemetry intel_vsec sparse_keymap joydev input_leds mac_hid sch_fq_codel efi_pstore nvme sdhci_pci nvme_core sdhci_uhs2 nvme_keyring sdhci hid_multitouch nvme_auth ghash_clmulni_intel psmouse cqhci video hkdf i2c_hid_acpi i2c_hid intel_lpss_pci intel_lpss idma64 wmi pinctrl_tigerlake serio_raw hid_generic usbhid hid lp ppdev parport msr dmi_sysfs autofs4 aesni_intel
+[    4.021249] Hardware name: Acer Aspire A715-79G/Aspire A715-79G, BIOS 1.14RA1 09/08/2025
+[    4.021444] Code: 8b 3c 24 48 85 ff 74 04 48 8b 7f 08 48 8b 5f 50 48 85 db 74 1f e8 d0 2d 98 ec 48 8d 3d 19 05 32 00 8b 4d d4 48 89 da 48 89 c6 <67> 48 0f b9 3a e9 2f ff ff ff 48 8b 1f eb dc 90 90 90 90 90 90 90
+[    4.997937] ACPI BIOS Error (bug): Could not resolve symbol [\_TZ.ETMD], AE_NOT_FOUND (20251212/psargs-332)
+[    4.997979] ACPI Error: Aborting method \_SB.IETM._OSC due to previous error (AE_NOT_FOUND) (20251212/psparse-529)
+[    4.998028] Consider using thermal netlink events interface

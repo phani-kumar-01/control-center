@@ -1,0 +1,126 @@
+# sensors-detect version 3.6.2
+# System: Acer Aspire A715-79G [1.14] (laptop)
+# Kernel: 7.0.0-38-generic x86_64
+# Processor: Intel(R) Core(TM) 5 210H (6/186/2)
+
+Running in automatic mode, default answers to all questions
+are assumed.
+
+Some south bridges, CPUs or memory controllers contain embedded sensors.
+Do you want to scan for them? This is totally safe. (YES/no): 
+Module cpuid loaded successfully.
+Silicon Integrated Systems SIS5595...                       No
+VIA VT82C686 Integrated Sensors...                          No
+VIA VT8231 Integrated Sensors...                            No
+AMD K8 thermal sensors...                                   No
+AMD Family 10h thermal sensors...                           No
+AMD Family 11h thermal sensors...                           No
+AMD Family 12h and 14h thermal sensors...                   No
+AMD Family 15h thermal sensors...                           No
+AMD Family 16h thermal sensors...                           No
+AMD Family 17h thermal sensors...                           No
+AMD Family 15h power sensors...                             No
+AMD Family 16h power sensors...                             No
+Hygon Family 18h thermal sensors...                         No
+AMD Family 19h thermal sensors...                           No
+Intel digital thermal sensor...                             Success!
+    (driver `coretemp')
+Intel AMB FB-DIMM thermal sensor...                         No
+Intel 5500/5520/X58 thermal sensor...                       No
+VIA C7 thermal sensor...                                    No
+VIA Nano thermal sensor...                                  No
+
+Some Super I/O chips contain embedded sensors. We have to write to
+standard I/O ports to probe them. This is usually safe.
+Do you want to scan for Super I/O sensors? (YES/no): 
+Probing for Super-I/O at 0x2e/0x2f
+Trying family `National Semiconductor/ITE'...               Yes
+Found unknown chip with ID 0x5570
+Probing for Super-I/O at 0x4e/0x4f
+Trying family `National Semiconductor/ITE'...               No
+Trying family `SMSC'...                                     No
+Trying family `VIA/Winbond/Nuvoton/Fintek'...               No
+Trying family `ITE'...                                      No
+
+Some hardware monitoring chips are accessible through the ISA I/O ports.
+We have to write to arbitrary I/O ports to probe them. This is usually
+safe though. Yes, you do have ISA I/O ports even if you do not have any
+ISA slots! Do you want to scan the ISA I/O ports? (YES/no): 
+Probing for `National Semiconductor LM78' at 0x290...       No
+Probing for `National Semiconductor LM79' at 0x290...       No
+Probing for `Winbond W83781D' at 0x290...                   No
+Probing for `Winbond W83782D' at 0x290...                   No
+
+Lastly, we can probe the I2C/SMBus adapters for connected hardware
+monitoring devices. This is the most risky part, and while it works
+reasonably well on most systems, it has been reported to cause trouble
+on some systems.
+Do you want to probe the I2C/SMBus adapters now? (YES/no): 
+Found unknown SMBus adapter 8086:51a3 at 0000:00:1f.4.
+Sorry, no supported PCI bus adapters found.
+
+Next adapter: Synopsys DesignWare I2C adapter (i2c-0)
+Do you want to scan it? (YES/no/selectively): 
+Adapter doesn't support all probing functions.
+Some addresses won't be probed.
+
+Next adapter: SMBus I801 adapter at 0000:00:1f.4 (i2c-1)
+Do you want to scan it? (YES/no/selectively): 
+Client found at address 0x50
+Handled by driver `ee1004' (already loaded), chip type `ee1004'
+    (note: this is probably NOT a sensor chip!)
+
+Next adapter: i915 gmbus dpa (i2c-2)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus dpb (i2c-3)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus dpc (i2c-4)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus tc1 (i2c-5)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus tc2 (i2c-6)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus tc3 (i2c-7)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus tc4 (i2c-8)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus tc5 (i2c-9)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: i915 gmbus tc6 (i2c-10)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: AUX A/DDI A/PHY A (i2c-11)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: NVIDIA i2c adapter 1 at 1:00.0 (i2c-12)
+Do you want to scan it? (yes/NO/selectively): 
+
+Next adapter: NVIDIA i2c adapter 3 at 1:00.0 (i2c-13)
+Do you want to scan it? (yes/NO/selectively): 
+
+
+Now follows a summary of the probes I have just done.
+
+Driver `coretemp':
+  * Chip `Intel digital thermal sensor' (confidence: 9)
+
+To load everything that is needed, add this to /etc/modules:
+#----cut here----
+# Chip drivers
+coretemp
+#----cut here----
+If you have some drivers built into your kernel, the list above will
+contain too many modules. Skip the appropriate ones!
+
+Do you want to add these lines automatically to /etc/modules? (yes/NO)
+
+Unloading cpuid... OK
+
